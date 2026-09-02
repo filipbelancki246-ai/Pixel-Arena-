@@ -332,6 +332,43 @@ body.theme-night .cloud{opacity:.15;}
 .rev-cell .disc.w{background:#eee;box-shadow:inset -2px -2px 0 #bbb;}
 .rev-cell.hint::after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);}
 
+/* ===== ШАШКИ ===== */
+.ch-board-frame{background:var(--wood-dark);padding:6px;border:3px solid #2b1a0e;display:inline-block;box-shadow:0 4px 10px rgba(0,0,0,.4);}
+#checkers-grid{display:grid;grid-template-columns:repeat(8,32px);grid-template-rows:repeat(8,32px);gap:0;position:relative;}
+.ch-cell{display:flex;align-items:center;justify-content:center;cursor:default;position:relative;}
+.ch-cell.dark{background:linear-gradient(135deg,#3a2416,#2c1a0f);}
+.ch-cell.light{background:linear-gradient(135deg,#d3b488,#c9a876);}
+.ch-cell.playable{cursor:pointer;}
+.ch-cell.selected{outline:2px solid var(--accent2);outline-offset:-2px;box-shadow:inset 0 0 8px var(--accent2);}
+.ch-cell.hint::after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:rgba(255,255,80,.8);box-shadow:0 0 6px rgba(255,255,120,.9);}
+.ch-piece{width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;position:relative;}
+.ch-piece::before{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:0 3px 3px rgba(0,0,0,.45);}
+.ch-piece.b{background:radial-gradient(circle at 35% 30%,#4a4a4a,#111 70%);border:1px solid #000;}
+.ch-piece.w{background:radial-gradient(circle at 35% 30%,#fff,#c9c9c9 70%);border:1px solid #999;}
+.ch-piece.king{box-shadow:0 0 0 2px var(--gold),0 3px 4px rgba(0,0,0,.5);}
+.ch-piece .ch-king-ico{color:var(--gold);text-shadow:0 0 3px #000;font-size:12px;}
+.ch-flying-clone{pointer-events:none;}
+
+/* ===== НАРДЫ ===== */
+.bg-dice{display:flex;gap:8px;justify-content:center;margin-bottom:8px;min-height:30px;}
+.bg-die{width:28px;height:28px;background:#fff;color:#111;border-radius:5px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:14px;box-shadow:0 2px 0 #999;}
+.bg-die.used{opacity:.3;}
+.bg-board{background:var(--wood-dark);border:3px solid #2b1a0e;padding:6px;display:flex;flex-direction:column;gap:4px;}
+.bg-row{display:flex;gap:2px;}
+.bg-point{flex:1;height:96px;display:flex;flex-direction:column;align-items:center;padding:2px 0;cursor:pointer;position:relative;background:rgba(0,0,0,.15);}
+.bg-point.alt{background:rgba(255,255,255,.06);}
+.bg-point.top{flex-direction:column;}
+.bg-point.bottom{flex-direction:column-reverse;}
+.bg-point.hint{outline:2px solid var(--accent2);outline-offset:-2px;}
+.bg-point.selected{outline:2px solid var(--gold);outline-offset:-2px;}
+.bg-chip{width:18px;height:18px;border-radius:50%;margin:1px 0;flex-shrink:0;}
+.bg-chip.w{background:#eee;box-shadow:inset -2px -2px 0 #bbb,0 0 3px #000;}
+.bg-chip.b{background:#111;box-shadow:inset 2px 2px 0 #444,0 0 3px #000;}
+.bg-point .bg-count{font-size:7px;color:var(--gold);margin-top:2px;}
+.bg-mid-row{display:flex;justify-content:center;gap:16px;padding:6px 0;font-size:8px;color:var(--accent2);}
+.bg-bar-zone, .bg-off-zone{cursor:pointer;padding:4px 10px;border:1px dashed var(--border-soft);border-radius:6px;display:flex;flex-direction:column;align-items:center;gap:2px;}
+.bg-bar-zone.hint, .bg-off-zone.hint{outline:2px solid var(--accent2);}
+
 /* ===== ВИСЕЛИЦА ===== */
 #hangman-word{font-size:22px;letter-spacing:8px;text-align:center;margin:14px 0;}
 #hangman-letters{display:flex;flex-wrap:wrap;gap:5px;max-width:400px;justify-content:center;margin-bottom:10px;}
@@ -345,8 +382,103 @@ body.theme-night .cloud{opacity:.15;}
 /* ===== ПОДСВЕТКА НОВЫХ КАРТ ===== */
 .game-card.new-tag{position:relative;}
 .game-card.new-tag::after{content:"NEW";position:absolute;top:4px;right:4px;background:var(--accent);color:#fff;font-size:6px;padding:2px 4px;border-radius:2px;}
+
+/* ===================== PX / МАГАЗИН / NFT ===================== */
+.px-pill{background:linear-gradient(180deg,#ffe375,var(--gold));color:#3a2a00;border:2px solid #a9740c;border-radius:6px;padding:5px 9px;font-size:9px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;}
+.px-pill .px-ico{font-size:11px;}
+
+.shop-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.shop-tab{flex:1;min-width:70px;padding:8px 4px;font-size:8px;text-align:center;background:var(--panel-solid);border:2px solid var(--border-soft);border-radius:6px;cursor:pointer;color:var(--text);}
+.shop-tab.active{background:var(--accent2);color:#04241f;border-color:var(--accent2);}
+
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:18px;}
+.shop-item{background:var(--panel);border:2px solid var(--border-soft);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center;}
+.shop-item .shop-item-ico{font-size:26px;}
+.shop-item .shop-item-name{font-size:9px;}
+.shop-item .shop-item-price{font-size:8px;color:var(--gold);}
+.shop-item button{width:100%;font-size:8px;padding:7px 4px;}
+.shop-item button.owned{background:var(--jungle-mid);border-color:var(--ok);color:var(--ok);}
+.shop-item button.equipped{background:var(--ok);color:#04241f;border-color:var(--ok);}
+.shop-item button:disabled{opacity:.45;cursor:not-allowed;}
+
+.section-label{font-size:9px;color:var(--accent2);margin:16px 0 8px;letter-spacing:1px;}
+
+/* --- значки (badges) --- */
+.badge-chip{display:inline-block;font-size:7px;padding:3px 6px;border-radius:4px;background:var(--jungle-mid);border:1px solid var(--gold);color:var(--gold);margin:2px 3px 2px 0;}
+.badge-row{display:flex;flex-wrap:wrap;justify-content:center;margin:6px 0 2px;}
+
+/* --- рамки профиля (равки вокруг аватара) --- */
+@keyframes neonPulse{0%,100%{filter:brightness(1);}50%{filter:brightness(1.4);}}
+@keyframes legendarySpin{0%{box-shadow:0 0 16px var(--gold), 0 0 32px var(--accent);}50%{box-shadow:0 0 20px var(--accent), 0 0 36px var(--gold);}100%{box-shadow:0 0 16px var(--gold), 0 0 32px var(--accent);}}
+
+/* --- анимация профиля (эффект-товар) --- */
+.profile-avatar-big.fx-anim{animation:avatarFloat 2.4s ease-in-out infinite;}
+@keyframes avatarFloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-6px) rotate(-4deg);}}
+
+/* --- премиум-темы из магазина (поверх дня/ночи) --- */
+body.pixel-theme-matrix{--jungle-dark:#020c04;--jungle-mid:#04240f;--jungle-light:#0f5c22;--panel:#01180aee;--panel-solid:#011007;--border:#00ff66;--border-soft:#0a5c2c;--text:#c6ffd6;--accent:#00ff66;--accent2:#00ffaa;--gold:#7bff5a;--sky-top:#031a08;--sky-mid:#052b0d;--sky-bottom:#0a4014;}
+body.pixel-theme-cyber{--jungle-dark:#0a0420;--jungle-mid:#1a0b3d;--jungle-light:#3d1a6b;--panel:#12063aee;--panel-solid:#0b0428;--border:#ff2bd6;--border-soft:#5a1c8f;--text:#f0e6ff;--accent:#ff2bd6;--accent2:#2be8ff;--gold:#ffd23f;--sky-top:#0a0420;--sky-mid:#1a0b3d;--sky-bottom:#3d1a6b;}
+body.pixel-theme-purple{--jungle-dark:#160822;--jungle-mid:#2c1245;--jungle-light:#5a2a8a;--panel:#1c0a30ee;--panel-solid:#130722;--border:#b06bff;--border-soft:#5a2a8a;--text:#ecdcff;--accent:#b06bff;--accent2:#ff7ce0;--gold:#ffd23f;--sky-top:#160822;--sky-mid:#2c1245;--sky-bottom:#4a1f6e;}
+body.pixel-theme-sunset{--jungle-dark:#2a0f08;--jungle-mid:#5c2410;--jungle-light:#a84a1e;--panel:#331409ee;--panel-solid:#220d06;--border:#ff8c3d;--border-soft:#a84a1e;--text:#ffe9d6;--accent:#ff5d3d;--accent2:#ffb23d;--gold:#ffd23f;--sky-top:#2a0f08;--sky-mid:#5c2410;--sky-bottom:#a84a1e;}
+body.pixel-theme-ocean{--jungle-dark:#031824;--jungle-mid:#053248;--jungle-light:#0a6c8f;--panel:#042638ee;--panel-solid:#02141e;--border:#2bd4ff;--border-soft:#0a6c8f;--text:#dafcff;--accent:#2bd4ff;--accent2:#5be8b8;--gold:#ffd23f;--sky-top:#031824;--sky-mid:#053248;--sky-bottom:#0a6c8f;}
+body.pixel-theme-bloodmoon{--jungle-dark:#1a0505;--jungle-mid:#3d0a0a;--jungle-light:#7a1414;--panel:#220707ee;--panel-solid:#150404;--border:#ff2b2b;--border-soft:#7a1414;--text:#ffe0e0;--accent:#ff2b2b;--accent2:#ff7a3d;--gold:#ffd23f;--sky-top:#0d0303;--sky-mid:#1a0505;--sky-bottom:#3d0a0a;}
+body.pixel-theme-forest{--jungle-dark:#031a08;--jungle-mid:#0a3d1a;--jungle-light:#1a7a3d;--panel:#042608ee;--panel-solid:#021404;--border:#3dff8c;--border-soft:#1a7a3d;--text:#d6ffe0;--accent:#3dff8c;--accent2:#8cff5b;--gold:#ffd23f;--sky-top:#031a08;--sky-mid:#0a3d1a;--sky-bottom:#1a7a3d;}
+body.pixel-theme-goldenhour{--jungle-dark:#2a1a03;--jungle-mid:#5c3d0a;--jungle-light:#a8781e;--panel:#331f04ee;--panel-solid:#221403;--border:#ffcc3d;--border-soft:#a8781e;--text:#fff3d6;--accent:#ffcc3d;--accent2:#ff9a3d;--gold:#ffe375;--sky-top:#2a1a03;--sky-mid:#5c3d0a;--sky-bottom:#a8781e;}
+
+/* --- рамки профиля --- */
+.frame-bronze{border:4px solid #b8792f !important;box-shadow:0 0 0 2px #6b430f, 0 0 14px #b8792f88 !important;}
+.frame-silver{border:4px solid #c9d2da !important;box-shadow:0 0 0 2px #6d7680, 0 0 14px #c9d2da88 !important;}
+.frame-neon{border:4px solid var(--accent2) !important;box-shadow:0 0 12px var(--accent2), 0 0 26px var(--accent2) !important;animation:neonPulse 1.6s ease-in-out infinite;}
+.frame-ice{border:4px solid #9fe8ff !important;box-shadow:0 0 14px #9fe8ff, 0 0 24px #d6f6ff !important;animation:neonPulse 2.4s ease-in-out infinite;}
+.frame-fire{border:4px solid #ff5d1a !important;box-shadow:0 0 16px #ff5d1a, 0 0 28px #ffb23d !important;animation:legendarySpin 2.2s linear infinite;}
+.frame-diamond{border:4px solid #bdeaff !important;box-shadow:0 0 18px #bdeaff, 0 0 34px #ffffff !important;animation:neonPulse 1.3s ease-in-out infinite;}
+.frame-shadow{border:4px solid #2a1a3d !important;box-shadow:0 0 16px #6b2fff88, 0 0 4px #000 !important;}
+.frame-legendary{border:4px solid var(--gold) !important;box-shadow:0 0 16px var(--gold), 0 0 32px var(--accent) !important;animation:legendarySpin 3s linear infinite;}
+
+/* --- NFT --- */
+.nft-slots{display:flex;gap:10px;justify-content:center;margin:10px 0 4px;}
+.nft-slot{width:64px;height:64px;border:2px dashed var(--border-soft);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;background:var(--panel-solid);position:relative;}
+.nft-slot.filled{border-style:solid;border-color:var(--gold);}
+.nft-slot .nft-num{position:absolute;bottom:1px;right:2px;font-size:6px;color:var(--gold);}
+.collection-stats{display:flex;gap:10px;justify-content:center;font-size:8px;color:var(--accent2);margin-bottom:6px;}
+
+.market-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;}
+.nft-card{background:var(--panel);border:2px solid var(--border-soft);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center;position:relative;overflow:hidden;}
+.nft-card.rarity-common{border-color:#7a8a7f;}
+.nft-card.rarity-rare{border-color:var(--accent2);}
+.nft-card.rarity-epic{border-color:var(--accent);}
+.nft-card.rarity-legendary{border-color:var(--gold);box-shadow:0 0 14px var(--gold)55;}
+.nft-card .nft-ico{font-size:34px;}
+.nft-card .nft-name{font-size:8px;}
+.nft-card .nft-rarity{font-size:6px;padding:2px 5px;border-radius:3px;background:var(--panel-solid);}
+.nft-card .nft-supply{font-size:7px;color:var(--accent2);}
+.nft-card .nft-bar{width:100%;height:5px;background:var(--panel-solid);border-radius:3px;overflow:hidden;}
+.nft-card .nft-bar-fill{height:100%;background:var(--ok);}
+.nft-card .nft-price{font-size:8px;color:var(--gold);}
+.nft-card button{width:100%;font-size:7px;padding:7px 4px;}
+
+.nft-modal-backdrop{position:fixed;inset:0;background:#000c;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;}
+.nft-modal{background:var(--panel-solid);border:3px solid var(--gold);border-radius:12px;padding:22px;max-width:320px;width:100%;text-align:center;box-shadow:0 0 30px var(--gold)77;}
+.nft-modal .nft-modal-ico{font-size:70px;margin-bottom:10px;display:inline-block;animation:nftFloat 2.2s ease-in-out infinite;}
+@keyframes nftFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-10px) scale(1.06);}}
+.nft-modal h3{margin-bottom:8px;font-size:12px;}
+.nft-modal .nft-modal-row{display:flex;justify-content:space-between;font-size:8px;margin:5px 0;color:var(--accent2);}
+.nft-modal button{margin-top:14px;width:100%;}
+
+/* --- эффект победы (частицы) --- */
+.px-fx-layer{position:fixed;inset:0;pointer-events:none;z-index:999;overflow:hidden;}
+.px-fx-particle{position:absolute;font-size:20px;animation:pxFxRise 1.1s ease-out forwards;}
+@keyframes pxFxRise{0%{transform:translateY(0) scale(0.5);opacity:0;}15%{opacity:1;transform:translateY(-10px) scale(1.1);}100%{transform:translateY(-160px) scale(0.9);opacity:0;}}
+
+/* --- квесты / ежедневный бонус --- */
+.quest-row{display:flex;justify-content:space-between;align-items:center;background:var(--panel);border:2px solid var(--border-soft);border-radius:8px;padding:9px 10px;margin-bottom:8px;font-size:8px;gap:8px;}
+.quest-row .quest-progress{color:var(--accent2);font-size:7px;}
+.quest-row button{font-size:7px;padding:6px 8px;white-space:nowrap;}
+.daily-bonus-box{background:var(--panel);border:2px solid var(--gold);border-radius:10px;padding:14px;text-align:center;margin-bottom:16px;}
+.daily-bonus-box .streak-label{font-size:8px;color:var(--accent2);margin-bottom:8px;}
 </style>
 
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 
@@ -354,6 +486,8 @@ body.theme-night .cloud{opacity:.15;}
 <div class="world-bg" id="world-bg"></div>
 
 <div class="toast" id="toast"></div>
+<div class="px-fx-layer" id="px-fx-layer"></div>
+<div id="nft-modal-root"></div>
 
 <!-- ЭКРАН ВХОДА -->
 <div id="screen-auth" class="screen active">
@@ -394,6 +528,7 @@ body.theme-night .cloud{opacity:.15;}
 <div id="screen-menu" class="screen">
   <div class="user-bar">
     <span class="pill">🛡️ <span id="current-user">PLAYER</span></span>
+    <span class="px-pill"><span class="px-ico">💎</span><span id="px-balance">0</span> PX</span>
     <button class="btn-small btn-ghost" onclick="logout()">ВЫЙТИ</button>
   </div>
   <h2>ВЫБЕРИ ИГРУ</h2>
@@ -430,6 +565,14 @@ body.theme-night .cloud{opacity:.15;}
       <span class="icon">⚫</span>РЕВЕРСИ
       <span class="best" id="best-reversi"></span>
     </div>
+    <div class="game-card new-tag" onclick="startGame('checkers')">
+      <span class="icon">⚫</span>ШАШКИ
+      <span class="best" id="best-checkers"></span>
+    </div>
+    <div class="game-card new-tag" onclick="startGame('backgammon')">
+      <span class="icon">🎲</span>НАРДЫ
+      <span class="best" id="best-backgammon"></span>
+    </div>
     <div class="game-card new-tag" onclick="startGame('g2048')">
       <span class="icon">🔢</span>2048
       <span class="best" id="best-g2048"></span>
@@ -451,6 +594,12 @@ body.theme-night .cloud{opacity:.15;}
     </div>
     <div class="game-card" onclick="showProfile()">
       <span class="icon">🛡️</span>ПРОФИЛЬ
+    </div>
+    <div class="game-card new-tag" onclick="showShop()">
+      <span class="icon">🛒</span>PIXEL SHOP
+    </div>
+    <div class="game-card new-tag" onclick="showMarket()">
+      <span class="icon">💠</span>PIXEL MARKET
     </div>
     <div class="game-card" onclick="showSettings()" style="grid-column:span 2;">
       <span class="icon">⚙️</span>НАСТРОЙКИ (ТЕМА / МУЗЫКА)
@@ -626,6 +775,40 @@ body.theme-night .cloud{opacity:.15;}
   <div class="controls-hint">Окружи ряд фишек соперника своими, чтобы перевернуть их. Ход пропускается, если нет доступных ходов.</div>
 </div>
 
+<!-- ШАШКИ -->
+<div id="screen-checkers" class="screen">
+  <div class="user-bar">
+    <span class="pill">🔴 ШАШКИ</span>
+    <button class="btn-small btn-ghost" onclick="backToMenu()">МЕНЮ</button>
+  </div>
+  <div class="score-display">
+    <span>⚫ <span id="ch-red">12</span></span>
+    <span id="ch-status">ХОД: ЧЁРНЫЕ (БОТ)</span>
+    <span>⚪ <span id="ch-white">12</span></span>
+  </div>
+  <div class="ch-board-frame"><div id="checkers-grid"></div></div>
+  <div style="margin-top:10px;"><button onclick="restartCheckers()">ЗАНОВО</button></div>
+  <div class="controls-hint">Ходи по диагонали вперёд. Если есть взятие — оно обязательно. Дойдя до последнего ряда, шашка становится дамкой.</div>
+</div>
+
+<!-- НАРДЫ -->
+<div id="screen-backgammon" class="screen">
+  <div class="user-bar">
+    <span class="pill">🎲 НАРДЫ</span>
+    <button class="btn-small btn-ghost" onclick="backToMenu()">МЕНЮ</button>
+  </div>
+  <div class="score-display">
+    <span>⚪ ТЫ: <span id="bg-off-white">0</span>/15</span>
+    <span id="bg-status">БРОСЬ КУБИКИ</span>
+    <span>⚫ БОТ: <span id="bg-off-black">0</span>/15</span>
+  </div>
+  <div id="bg-dice" class="bg-dice"></div>
+  <div style="text-align:center;margin-bottom:8px;"><button onclick="bgRollDice()" id="bg-roll-btn">🎲 БРОСИТЬ КУБИКИ</button></div>
+  <div id="backgammon-board" class="bg-board"></div>
+  <div style="margin-top:10px;text-align:center;"><button onclick="restartBackgammon()">НОВАЯ ИГРА</button></div>
+  <div class="controls-hint">Клик по своей точке — выбрать шашку, клик по точке назначения — сходить (ход должен соответствовать одному из выпавших кубиков). Шашки с БАРА нужно ввести первыми.</div>
+</div>
+
 <!-- 2048 -->
 <div id="screen-g2048" class="screen">
   <div class="user-bar">
@@ -720,12 +903,26 @@ body.theme-night .cloud{opacity:.15;}
   </div>
   <div class="profile-avatar-big" id="profile-avatar-big">🛡️</div>
   <h3 id="profile-name">PLAYER</h3>
+  <div class="badge-row" id="profile-badges"></div>
+  <div style="text-align:center;font-size:8px;color:var(--accent2);margin-bottom:4px;">
+    LVL <span id="profile-lvl">1</span> · <span id="profile-xp">0</span> XP · <span id="profile-rank">—</span>
+  </div>
+  <div id="profile-league" style="text-align:center;margin-bottom:8px;"></div>
+  <div class="px-pill" style="margin:0 auto 14px;display:table;"><span class="px-ico">💎</span><span id="profile-px">0</span> PX</div>
   <div class="profile-stats-grid">
     <div class="stat-box">ВСЕГО ИГР<b id="profile-games">0</b></div>
     <div class="stat-box">ВСЕГО ОЧКОВ<b id="profile-totalscore">0</b></div>
     <div class="stat-box">ДОСТИЖЕНИЯ<b id="profile-ach-count">0/0</b></div>
     <div class="stat-box">ЛЮБИМАЯ ИГРА<b id="profile-favgame">—</b></div>
   </div>
+
+  <h3 class="section-label">💠 MY COLLECTION</h3>
+  <div class="nft-slots" id="profile-nft-slots"></div>
+  <div class="collection-stats">
+    <span>NFT: <b id="profile-nft-count">0</b></span>
+    <span>VALUE: <b id="profile-nft-value">0</b> PX</span>
+  </div>
+
   <h3>🏅 ДОСТИЖЕНИЯ</h3>
   <div class="ach-grid" id="profile-ach-grid"></div>
 </div>
@@ -747,6 +944,70 @@ body.theme-night .cloud{opacity:.15;}
   </div>
   <h3>🛡️ АВАТАР</h3>
   <div class="avatar-pick-grid" id="settings-avatar-grid"></div>
+</div>
+
+<!-- PIXEL SHOP -->
+<div id="screen-shop" class="screen">
+  <div class="user-bar">
+    <span class="pill">🛒 PIXEL SHOP</span>
+    <span class="px-pill"><span class="px-ico">💎</span><span id="shop-px-balance">0</span> PX</span>
+    <button class="btn-small btn-ghost" onclick="backToMenu()">МЕНЮ</button>
+  </div>
+  <div class="shop-tabs">
+    <div class="shop-tab" data-shop-tab="quests" onclick="showShopTab('quests', this)">🎯 ЗАДАНИЯ</div>
+    <div class="shop-tab" data-shop-tab="pass" onclick="showShopTab('pass', this)">🎫 ПРОПУСК</div>
+    <div class="shop-tab" data-shop-tab="cases" onclick="showShopTab('cases', this)">🎁 КЕЙСЫ</div>
+    <div class="shop-tab" data-shop-tab="themes" onclick="showShopTab('themes', this)">🎨 ТЕМЫ</div>
+    <div class="shop-tab" data-shop-tab="frames" onclick="showShopTab('frames', this)">🖼️ РАМКИ</div>
+    <div class="shop-tab" data-shop-tab="effects" onclick="showShopTab('effects', this)">✨ ЭФФЕКТЫ</div>
+    <div class="shop-tab" data-shop-tab="badges" onclick="showShopTab('badges', this)">🏷️ ЗНАЧКИ</div>
+  </div>
+
+  <div id="shop-pane-quests" class="shop-pane">
+    <div class="daily-bonus-box">
+      <div class="streak-label">Серия входов: <b id="daily-streak">0</b> дней</div>
+      <button id="daily-bonus-btn" onclick="claimDailyBonus()">🎁 ЗАБРАТЬ ЕЖЕДНЕВНЫЙ БОНУС</button>
+    </div>
+    <div id="challenge-card" style="margin-bottom:16px;"></div>
+    <h3 class="section-label">ЕЖЕДНЕВНЫЕ ЗАДАНИЯ</h3>
+    <div id="quest-list"></div>
+    <h3 class="section-label">🗓️ ЕЖЕНЕДЕЛЬНЫЕ ЗАДАНИЯ</h3>
+    <div id="weekly-quest-list"></div>
+  </div>
+
+  <div id="shop-pane-pass" class="shop-pane" style="display:none;">
+    <div id="pass-head"></div>
+    <div id="pass-tier-list"></div>
+  </div>
+  <div id="shop-pane-cases" class="shop-pane" style="display:none;">
+    <div class="market-grid" id="cases-grid"></div>
+  </div>
+  <div id="shop-pane-themes" class="shop-pane" style="display:none;">
+    <div class="shop-grid" id="shop-grid-themes"></div>
+  </div>
+  <div id="shop-pane-frames" class="shop-pane" style="display:none;">
+    <div class="shop-grid" id="shop-grid-frames"></div>
+  </div>
+  <div id="shop-pane-effects" class="shop-pane" style="display:none;">
+    <div class="shop-grid" id="shop-grid-effects"></div>
+  </div>
+  <div id="shop-pane-badges" class="shop-pane" style="display:none;">
+    <div class="shop-grid" id="shop-grid-badges"></div>
+  </div>
+</div>
+
+<!-- PIXEL MARKET (NFT) -->
+<div id="screen-market" class="screen">
+  <div class="user-bar">
+    <span class="pill">💠 PIXEL MARKET</span>
+    <span class="px-pill"><span class="px-ico">💎</span><span id="market-px-balance">0</span> PX</span>
+    <button class="btn-small btn-ghost" onclick="backToMenu()">МЕНЮ</button>
+  </div>
+  <p style="font-size:8px;color:var(--accent2);text-align:center;margin-bottom:14px;">
+    Лимитированные коллекции. Каждый экземпляр — свой номер #XXXX. После распродажи тиража коллекция закрывается навсегда.
+  </p>
+  <div class="market-grid" id="market-grid"></div>
+  <div id="craft-section" style="margin-top:20px;"></div>
 </div>
 
 <!-- ЛИДЕРБОРД -->
@@ -872,7 +1133,10 @@ function sfx(name){
     case 'flip': beep(340,0.05,'triangle',0.05); break;
     case 'match': beep(880,0.12,'triangle',0.07); break;
     case 'nomatch': beep(160,0.12,'sawtooth',0.05); break;
-    case 'win': beep(988,0.18,'square',0.08); setTimeout(()=>beep(1318,0.2,'square',0.08),150); break;
+    case 'win':
+      if(!playVictorySoundIfOwned()){ beep(988,0.18,'square',0.08); setTimeout(()=>beep(1318,0.2,'square',0.08),150); }
+      playVictoryEffect();
+      break;
     case 'boom': beep(90,0.5,'sawtooth',0.09); break;
     case 'flag': beep(500,0.06,'square',0.04); break;
     case 'move': beep(300,0.05,'square',0.04); break;
@@ -897,6 +1161,47 @@ function getUsers(){ return JSON.parse(localStorage.getItem('pixelArena_users') 
 function saveUsers(u){ localStorage.setItem('pixelArena_users', JSON.stringify(u)); }
 function getScores(){ return JSON.parse(localStorage.getItem('pixelArena_scores') || '{}'); }
 function saveScores(s){ localStorage.setItem('pixelArena_scores', JSON.stringify(s)); }
+
+/* ===================== TELEGRAM MINI APP ===================== */
+let tgUser = null;
+function initTelegram(){
+  try{
+    const tg = window.Telegram && window.Telegram.WebApp;
+    if(!tg) return false;
+    tg.ready();
+    tg.expand();
+    if(tg.setHeaderColor) try{ tg.setHeaderColor('#12241c'); }catch(e){}
+    if(tg.setBackgroundColor) try{ tg.setBackgroundColor('#bdf0d8'); }catch(e){}
+    const u = tg.initDataUnsafe && tg.initDataUnsafe.user;
+    if(u){ tgUser = u; return true; }
+    return false;
+  }catch(e){ return false; }
+}
+// Auto-login/registration for a Telegram user: no password needed,
+// identity comes from Telegram itself.
+function telegramAutoLogin(){
+  if(!tgUser) return false;
+  const key = 'tg_' + tgUser.id;
+  const displayName = (tgUser.username ? tgUser.username : (tgUser.first_name || 'Игрок')).slice(0,12);
+  const users = getUsers();
+  if(!users[key]){
+    users[key] = { pass: null, avatar: AVATARS[0], displayName: displayName, telegram: true };
+    saveUsers(users);
+    saveProfile(key, { gamesPlayed:0, totalScore:0, achievements:[] });
+  } else if(!users[key].displayName || users[key].displayName !== displayName){
+    users[key].displayName = displayName;
+    saveUsers(users);
+  }
+  currentUser = key;
+  localStorage.setItem('pixelArena_session', key);
+  const cu = document.getElementById('current-user');
+  if(cu) cu.textContent = users[key].displayName || displayName;
+  refreshBestBadges();
+  applyUserAvatarUI();
+  initPxSystemForUser();
+  showScreen('menu');
+  return true;
+}
 
 /* ===================== АВТОРИЗАЦИЯ ===================== */
 function showRegister(){
@@ -942,6 +1247,7 @@ function register(){
   toast('Добро пожаловать, ' + user + '!');
   refreshBestBadges();
   applyUserAvatarUI();
+  initPxSystemForUser();
   showScreen('menu');
 }
 
@@ -961,11 +1267,18 @@ function login(){
   toast('С возвращением, ' + user + '!');
   refreshBestBadges();
   applyUserAvatarUI();
+  initPxSystemForUser();
   showScreen('menu');
 }
 
 function logout(){
   stopAllGameLoops();
+  if(tgUser){
+    // Inside Telegram, identity isn't a username/password login — nothing to log out of.
+    toast('Ты вошёл через Telegram — выход не нужен');
+    showScreen('menu');
+    return;
+  }
   currentUser = null;
   localStorage.removeItem('pixelArena_session');
   document.getElementById('login-user').value='';
@@ -1011,6 +1324,8 @@ function startGame(game, hard){
   else if(game === 'pool'){ showScreen('pool'); initPool(); }
   else if(game === 'ttt'){ showScreen('ttt'); restartTTT(); }
   else if(game === 'reversi'){ showScreen('reversi'); restartReversi(); }
+  else if(game === 'checkers'){ showScreen('checkers'); restartCheckers(); }
+  else if(game === 'backgammon'){ showScreen('backgammon'); restartBackgammon(); }
   else if(game === 'g2048'){ showScreen('g2048'); restartG2048(); }
   else if(game === 'tetris'){ showScreen('tetris'); restartTetris(); }
   else if(game === 'hangman'){ showScreen('hangman'); restartHangman(); }
@@ -1020,7 +1335,7 @@ function startGame(game, hard){
 /* ===================== РЕКОРДЫ ===================== */
 // направление сравнения: true = больше-лучше, false = меньше-лучше
 const scoreDir = { snake:true, memory:false, clicker:true, mines:false, chess:true, pool:false,
-  ttt:true, reversi:true, g2048:true, tetris:true, hangman:true, plat:true };
+  ttt:true, reversi:true, g2048:true, tetris:true, hangman:true, plat:true, checkers:true, backgammon:true };
 
 function saveScore(game, score){
   if(!currentUser) return;
@@ -1052,7 +1367,9 @@ function refreshBestBadges(){
     g2048: v=>'Рекорд: '+v,
     tetris: v=>'Рекорд: '+v,
     hangman: v=>'Побед: '+v,
-    plat: v=>'Рекорд монет: '+v
+    plat: v=>'Рекорд монет: '+v,
+    checkers: v=>'Побед: '+v,
+    backgammon: v=>'Побед: '+v
   };
   Object.keys(labels).forEach(g=>{
     const el = document.getElementById('best-'+g);
@@ -1105,10 +1422,12 @@ function showTab(tab, el){
     tbody.innerHTML = '<tr><td colspan="3">Пока пусто</td></tr>';
     return;
   }
+  const allUsers = getUsers();
   list.slice(0,15).forEach((item,i)=>{
     const tr = document.createElement('tr');
     if(item.user === currentUser) tr.classList.add('me-row');
-    tr.innerHTML = `<td>${i+1}</td><td>${escapeHtml(item.user)}</td><td>${item.score}</td>`;
+    const label = (allUsers[item.user] && allUsers[item.user].displayName) || item.user;
+    tr.innerHTML = `<td>${i+1}</td><td>${escapeHtml(label)}</td><td>${item.score}</td>`;
     tbody.appendChild(tr);
   });
 }
@@ -1302,7 +1621,7 @@ function endSnake(){
   clearInterval(snakeInterval);
   sfx('die');
   const isNew = saveScore('snake', snakeScore);
-  bumpProfile('snake', snakeScore);
+  bumpProfile('snake', snakeScore, null, isNew);
   checkAchievements('snake', snakeScore);
   drawSnake();
   sctx.fillStyle = 'rgba(0,0,0,.6)';
@@ -1431,7 +1750,7 @@ function flipCard(card){
         } else {
           const perfect = memMoves === window._memNPairs;
           const isNew = saveScore('memory', memMoves);
-          bumpProfile('memory', 100);
+          bumpProfile('memory', 100, 'win', isNew);
           checkAchievements('memory', memMoves, { perfect });
           sfx('win');
           setTimeout(()=> toast((isNew?'🏆 Новый рекорд! ':'') + 'Победа за ' + memMoves + ' ходов и ' + memSeconds + 'с!', 3200), 250);
@@ -1665,11 +1984,12 @@ function endMines(won, boomR, boomC){
   }
   if(won){
     const isNew = saveScore('mines', minesSeconds);
-    bumpProfile('mines', 100);
+    bumpProfile('mines', 100, 'win', isNew);
     checkAchievements('mines', minesSeconds, { difficulty: minesDifficulty });
     sfx('win');
     toast((isNew?'🏆 Новый рекорд! ':'') + 'Поле обезврежено за ' + minesSeconds + 'с!', 3000);
   } else {
+    registerLoss();
     toast('💥 БУМ! Игра окончена.', 2400);
   }
 }
@@ -2052,8 +2372,10 @@ function makeChessMove(fr,fc,tr,tc,promoType){
       toast('♛ МАТ! Победили ' + (winnerColor==='w' ? 'БЕЛЫЕ' : 'ЧЁРНЫЕ'), 3500);
       if(chessMode==='pvp' || (chessMode==='ai' && winnerColor==='w')){
         recordChessWin();
-        bumpProfile('chess', 200);
+        bumpProfile('chess', 200, 'win');
         checkAchievements('chess', 1, { vsAi: chessMode==='ai' });
+      } else if(chessMode==='ai' && winnerColor==='b'){
+        registerLoss();
       }
     } else {
       toast('🤝 ПАТ! Ничья.', 3000);
@@ -2255,10 +2577,11 @@ function poolProcessShotEnd(){
     sfx(won ? 'win' : 'boom');
     if(won){
       const isNew = saveScore('pool', poolShots);
-      bumpProfile('pool', 150);
+      bumpProfile('pool', 150, 'win', isNew);
       checkAchievements('pool', poolShots);
       toast('🏆 ИГРОК ' + poolTurn + ' ЗАБИЛ ВОСЬМОЙ ШАР И ПОБЕДИЛ! (' + poolShots + ' уд.)', 3600);
     } else {
+      registerLoss();
       toast('☠ ИГРОК ' + poolTurn + ' ЗАБИЛ ВОСЬМОЙ ШАР РАНЬШЕ ВРЕМЕНИ — ПОБЕДА ИГРОКА ' + (poolTurn===1?2:1) + '!', 3600);
     }
   } else {
@@ -2427,7 +2750,8 @@ function applyUserAvatarUI(){
   const av = (users[currentUser] && users[currentUser].avatar) || AVATARS[0];
   selectedAvatar = av;
   const cu = document.getElementById('current-user');
-  if(cu) cu.textContent = av + ' ' + currentUser;
+  const label = (users[currentUser] && users[currentUser].displayName) || currentUser;
+  if(cu) cu.textContent = av + ' ' + label;
 }
 
 function getProfile(user){
@@ -2436,13 +2760,22 @@ function getProfile(user){
 function saveProfile(user, p){
   localStorage.setItem('pixelArena_profile_'+user, JSON.stringify(p));
 }
-function bumpProfile(game, scoreDelta){
+function bumpProfile(game, scoreDelta, outcome, isRecord){
   if(!currentUser) return;
   const p = getProfile(currentUser);
+  const prevLevel = getLevel(getXP(p));
   p.gamesPlayed = (p.gamesPlayed||0) + 1;
   p.totalScore = (p.totalScore||0) + Math.max(0, scoreDelta||0);
   p.lastGame = game;
   saveProfile(currentUser, p);
+  awardGamePX(game, outcome || null, !!isRecord);
+  bumpLeagueXP(outcome==='win' ? 40 : (isRecord ? 25 : 10));
+  checkDailyChallenge(game, scoreDelta||0);
+  const newLevel = getLevel(getXP(p));
+  if(newLevel > prevLevel){
+    toast('⭐ НОВЫЙ УРОВЕНЬ: ' + newLevel + '!', 2800);
+    playLevelUpEffect();
+  }
 }
 
 const ACHIEVEMENTS = [
@@ -2456,6 +2789,11 @@ const ACHIEVEMENTS = [
   { key:'plat_20coins', ico:'🗡️', name:'СОКРОВИЩЕ ДЖУНГЛЕЙ', check:(g,v)=> g==='plat' && v>=20 },
   { key:'reversi_win', ico:'⚫', name:'МАСТЕР РЕВЕРСИ', check:(g,v)=> g==='reversi' && v>=1 },
   { key:'hangman_win', ico:'🎯', name:'УГАДАЙ СЛОВО', check:(g,v)=> g==='hangman' && v>=1 },
+  { key:'checkers_win', ico:'🔴', name:'ШАШЕЧНЫЙ МАСТЕР', check:(g,v)=> g==='checkers' && v>=1 },
+  { key:'checkers_5wins', ico:'🏅', name:'5 ПОБЕД В ШАШКАХ', check:(g,v)=> g==='checkers' && v>=5 },
+  { key:'checkers_king', ico:'♛', name:'ПЕРВАЯ ДАМКА', check:(g,v,extra)=> g==='checkers' && extra && extra.king },
+  { key:'backgammon_win', ico:'🎲', name:'МАСТЕР НАРД', check:(g,v)=> g==='backgammon' && v>=1 },
+  { key:'backgammon_5wins', ico:'🏆', name:'5 ПОБЕД В НАРДАХ', check:(g,v)=> g==='backgammon' && v>=5 },
 ];
 
 function checkAchievements(game, value, extra){
@@ -2475,18 +2813,1122 @@ function checkAchievements(game, value, extra){
   }
 }
 
+/* ===================== PX КОШЕЛЁК ===================== */
+const PX_REWARDS = { played:3, win:12, record:8, streak3:20, streak5:40, streak10:100, top10:30, quest:15, dailyBase:15 };
+
+function getWallet(user){ return parseInt(localStorage.getItem('pixelArena_wallet_'+user)||'0',10) || 0; }
+function setWallet(user, val){
+  localStorage.setItem('pixelArena_wallet_'+user, String(Math.max(0, Math.round(val))));
+  updatePxDisplays();
+}
+function addPX(user, amount, reason, countsForPass){
+  if(!user || !amount) return;
+  setWallet(user, getWallet(user) + amount);
+  if(countsForPass !== false) bumpPassXP(amount);
+  toast('💎 +' + amount + ' PX' + (reason ? (' · ' + reason) : ''), 1800);
+  playPxParticles();
+}
+function spendPX(user, amount){
+  const bal = getWallet(user);
+  if(bal < amount) return false;
+  setWallet(user, bal - amount);
+  return true;
+}
+function updatePxDisplays(){
+  if(!currentUser) return;
+  const bal = getWallet(currentUser).toLocaleString('ru-RU');
+  ['px-balance','shop-px-balance','market-px-balance','profile-px'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.textContent = bal;
+  });
+}
+function playPxParticles(){
+  const layer = document.getElementById('px-fx-layer');
+  if(!layer) return;
+  for(let i=0;i<6;i++){
+    const p = document.createElement('div');
+    p.className = 'px-fx-particle';
+    p.textContent = '💎';
+    p.style.left = (40 + Math.random()*20) + 'vw';
+    p.style.bottom = '10vh';
+    p.style.animationDelay = (i*0.05)+'s';
+    layer.appendChild(p);
+    setTimeout(()=>p.remove(), 1300);
+  }
+}
+
+/* ===================== СЕРИЯ ПОБЕД / РЕЗУЛЬТАТЫ ИГР ===================== */
+function getStreak(user){ return parseInt(localStorage.getItem('pixelArena_streak_'+user)||'0',10) || 0; }
+function setStreak(user, v){ localStorage.setItem('pixelArena_streak_'+user, String(v)); }
+
+function registerWin(game){
+  if(!currentUser) return;
+  addPX(currentUser, PX_REWARDS.win, 'победа');
+  const s = getStreak(currentUser) + 1;
+  setStreak(currentUser, s);
+  if(s===3){ addPX(currentUser, PX_REWARDS.streak3, 'серия из 3 побед'); playComboEffect(); }
+  else if(s===5){ addPX(currentUser, PX_REWARDS.streak5, 'серия из 5 побед'); playComboEffect(); }
+  else if(s>=10 && s%10===0){ addPX(currentUser, PX_REWARDS.streak10, 'серия из ' + s + ' побед'); playComboEffect(); }
+  bumpQuestProgress('win');
+}
+function registerLoss(){
+  if(!currentUser) return;
+  setStreak(currentUser, 0);
+}
+
+// Вызывается для каждой завершённой игры. outcome: 'win' | 'lose' | null. isRecord: новый личный рекорд?
+function awardGamePX(game, outcome, isRecord){
+  if(!currentUser) return;
+  addPX(currentUser, PX_REWARDS.played, 'игра сыграна');
+  bumpQuestProgress('played');
+  if(outcome === 'win') registerWin(game);
+  else if(outcome === 'lose') registerLoss();
+  if(isRecord){
+    addPX(currentUser, PX_REWARDS.record, 'новый рекорд');
+    bumpQuestProgress('record');
+    playRecordEffect();
+  }
+  checkTop10Bonus(game);
+}
+
+function checkTop10Bonus(game){
+  if(!currentUser) return;
+  const key = 'pixelArena_top10bonus_' + currentUser + '_' + game + '_' + todayKey();
+  if(localStorage.getItem(key)) return;
+  const scores = getScores();
+  const dir = scoreDir[game];
+  const list = Object.keys(scores).filter(u=>scores[u][game]!==undefined)
+    .map(u=>({user:u, score:scores[u][game]}))
+    .sort((a,b)=> dir ? b.score-a.score : a.score-b.score);
+  const idx = list.findIndex(x=>x.user===currentUser);
+  if(idx>=0 && idx<10){
+    localStorage.setItem(key, '1');
+    addPX(currentUser, PX_REWARDS.top10, 'топ-10 в ' + game);
+  }
+}
+
+/* ===================== СЕЗОН (используется лигой и баттл-пассом) ===================== */
+const SEASON_LENGTH_DAYS = 30;
+const SEASON_ANCHOR = Date.parse('2026-08-01T00:00:00Z');
+function getSeasonInfo(){
+  const day = 86400000;
+  const diff = Date.now() - SEASON_ANCHOR;
+  const seasonNum = Math.max(1, Math.floor(diff / (SEASON_LENGTH_DAYS*day)) + 1);
+  const seasonStart = SEASON_ANCHOR + (seasonNum-1)*SEASON_LENGTH_DAYS*day;
+  const dayInSeason = Math.min(SEASON_LENGTH_DAYS, Math.floor((Date.now()-seasonStart)/day) + 1);
+  return { seasonNum, dayInSeason };
+}
+
+/* ===================== ЛИГИ / ДИВИЗИОНЫ ===================== */
+const LEAGUE_DIVISIONS = [
+  { key:'bronze', name:'БРОНЗА', ico:'🥉', min:0 },
+  { key:'silver', name:'СЕРЕБРО', ico:'🥈', min:1000 },
+  { key:'gold', name:'ЗОЛОТО', ico:'🥇', min:3000 },
+  { key:'master', name:'МАСТЕР', ico:'💎', min:7000 },
+];
+function getLeagueState(){
+  const season = getSeasonInfo().seasonNum;
+  const key = 'pixelArena_league_' + currentUser;
+  let st = JSON.parse(localStorage.getItem(key) || 'null');
+  if(!st || st.season !== season){ st = { season, xp:0 }; localStorage.setItem(key, JSON.stringify(st)); }
+  return st;
+}
+function saveLeagueState(st){ localStorage.setItem('pixelArena_league_' + currentUser, JSON.stringify(st)); }
+function bumpLeagueXP(amount){
+  if(!currentUser || !amount) return;
+  const st = getLeagueState();
+  const prevDiv = divisionForXp(st.xp);
+  st.xp += amount;
+  saveLeagueState(st);
+  const newDiv = divisionForXp(st.xp);
+  if(newDiv.key !== prevDiv.key){ toast('📈 Новый дивизион: ' + newDiv.ico + ' ' + newDiv.name + '!', 3000); }
+}
+function divisionForXp(xp){
+  let cur = LEAGUE_DIVISIONS[0];
+  for(const d of LEAGUE_DIVISIONS){ if(xp >= d.min) cur = d; }
+  return cur;
+}
+function nextDivision(xp){
+  return LEAGUE_DIVISIONS.find(d=>d.min > xp) || null;
+}
+
+/* ===================== ИСПЫТАНИЕ ДНЯ ===================== */
+const CHALLENGE_GAME_POOL = ['snake','tetris','g2048','mines','memory'];
+function todaysChallengeGame(){
+  const rnd = seededRandom('challenge_' + todayKey());
+  return CHALLENGE_GAME_POOL[Math.floor(rnd() * CHALLENGE_GAME_POOL.length)];
+}
+function getChallengeState(){
+  const key = 'pixelArena_challenge_' + currentUser + '_' + todayKey();
+  return JSON.parse(localStorage.getItem(key) || 'null') || { best:null, claimed:false };
+}
+function saveChallengeState(st){
+  localStorage.setItem('pixelArena_challenge_' + currentUser + '_' + todayKey(), JSON.stringify(st));
+}
+function checkDailyChallenge(game, scoreDelta){
+  if(!currentUser) return;
+  if(game !== todaysChallengeGame()) return;
+  const st = getChallengeState();
+  const dir = scoreDir[game];
+  const improved = st.best===null || (dir ? scoreDelta > st.best : scoreDelta < st.best);
+  if(improved) st.best = scoreDelta;
+  if(improved && !st.claimed){
+    st.claimed = true;
+    addPX(currentUser, 40, 'испытание дня');
+  }
+  saveChallengeState(st);
+  renderChallengeCard();
+}
+const CHALLENGE_GAME_NAMES = { snake:'ЗМЕЙКА', tetris:'ТЕТРИС', g2048:'2048', mines:'САПЁР', memory:'МЕМОРИ' };
+function renderChallengeCard(){
+  const el = document.getElementById('challenge-card');
+  if(!el || !currentUser) return;
+  const game = todaysChallengeGame();
+  const st = getChallengeState();
+  el.innerHTML = `
+    <div class="section-label" style="margin-top:0;">🏆 ИСПЫТАНИЕ ДНЯ</div>
+    <div class="quest-row">
+      <div>Сыграй в ${CHALLENGE_GAME_NAMES[game]||game} и побей свой сегодняшний рекорд<div class="quest-progress">Лучший результат сегодня: ${st.best===null?'—':st.best} · 💎40 PX за первое улучшение</div></div>
+      <button disabled>${st.claimed?'ПОЛУЧЕНО':'В ПРОЦЕССЕ'}</button>
+    </div>
+  `;
+}
+
+/* ===================== БАТТЛ-ПАСС ===================== */
+const PASS_TIERS = 30;
+const PASS_XP_PER_TIER = 100;
+const PASS_PRICE = 1500;
+function getPassState(){
+  const season = getSeasonInfo().seasonNum;
+  const key = 'pixelArena_pass_' + currentUser;
+  let st = JSON.parse(localStorage.getItem(key) || 'null');
+  if(!st || st.season !== season){
+    st = { season, xp:0, premium:false, claimedFree:[], claimedPremium:[] };
+    localStorage.setItem(key, JSON.stringify(st));
+  }
+  return st;
+}
+function savePassState(st){ localStorage.setItem('pixelArena_pass_' + currentUser, JSON.stringify(st)); }
+function bumpPassXP(amount){
+  if(!currentUser || !amount) return;
+  const st = getPassState();
+  st.xp += amount;
+  savePassState(st);
+}
+function passTierReached(st){ return Math.min(PASS_TIERS, Math.floor(st.xp / PASS_XP_PER_TIER)); }
+function passFreeReward(tier){ return 20 + tier*5; }
+function passPremiumReward(tier){ return 60 + tier*15; }
+function buyPassPremium(){
+  if(!currentUser) return;
+  const st = getPassState();
+  if(st.premium){ toast('Премиум-трек уже куплен в этом сезоне'); return; }
+  if(!spendPX(currentUser, PASS_PRICE)){ toast('Недостаточно PX'); return; }
+  st.premium = true;
+  savePassState(st);
+  toast('🎫 Премиум-трек пропуска активирован!');
+  renderPassScreen();
+}
+function claimPassReward(tier, track){
+  if(!currentUser) return;
+  const st = getPassState();
+  const reached = passTierReached(st);
+  if(tier > reached) return;
+  if(track==='premium' && !st.premium){ toast('Нужен премиум-трек'); return; }
+  const list = track==='free' ? st.claimedFree : st.claimedPremium;
+  if(list.includes(tier)) return;
+  list.push(tier);
+  savePassState(st);
+  const reward = track==='free' ? passFreeReward(tier) : passPremiumReward(tier);
+  addPX(currentUser, reward, 'пропуск, тир ' + tier, false);
+  renderPassScreen();
+}
+function claimAllFreePassRewards(){
+  if(!currentUser) return;
+  const st = getPassState();
+  const reached = passTierReached(st);
+  const toClaim = [];
+  for(let t=1;t<=reached;t++){ if(!st.claimedFree.includes(t)) toClaim.push(t); }
+  if(!toClaim.length){ toast('Нет доступных бесплатных наград'); return; }
+  let total = 0;
+  toClaim.forEach(t=>{ st.claimedFree.push(t); total += passFreeReward(t); });
+  savePassState(st);
+  addPX(currentUser, total, 'пропуск, все бесплатные награды', false);
+  renderPassScreen();
+}
+function renderPassScreen(){
+  if(!currentUser) return;
+  const st = getPassState();
+  const season = getSeasonInfo();
+  const reached = passTierReached(st);
+  const head = document.getElementById('pass-head');
+  if(head){
+    const xpInTier = st.xp - reached*PASS_XP_PER_TIER;
+    const pct = reached>=PASS_TIERS ? 100 : Math.round((xpInTier/PASS_XP_PER_TIER)*100);
+    head.innerHTML = `
+      <div style="text-align:center;font-size:8px;color:var(--accent2);margin-bottom:6px;">СЕЗОН ${season.seasonNum} · ДЕНЬ ${season.dayInSeason}/${SEASON_LENGTH_DAYS}</div>
+      <div style="text-align:center;font-size:10px;margin-bottom:6px;">ТИР ${reached}/${PASS_TIERS} · ${st.xp} XP</div>
+      <div class="nft-bar" style="margin-bottom:10px;"><div class="nft-bar-fill" style="width:${pct}%;"></div></div>
+      ${st.premium ? '<div style="text-align:center;color:var(--gold);font-size:8px;margin-bottom:10px;">🎫 ПРЕМИУМ АКТИВЕН</div>' : `<div style="text-align:center;margin-bottom:10px;"><button onclick="buyPassPremium()">🎫 КУПИТЬ ПРЕМИУМ · 💎${PASS_PRICE} PX</button></div>`}
+      ${(()=>{ const claimableFree = []; for(let t=1;t<=reached;t++){ if(!st.claimedFree.includes(t)) claimableFree.push(t); } return claimableFree.length ? `<div style="text-align:center;margin-bottom:10px;"><button class="btn-secondary" onclick="claimAllFreePassRewards()">⬇️ ЗАБРАТЬ ВСЕ БЕСПЛАТНЫЕ (${claimableFree.length})</button></div>` : ''; })()}
+    `;
+  }
+  const list = document.getElementById('pass-tier-list');
+  if(!list) return;
+  list.innerHTML = '';
+  for(let t=1; t<=PASS_TIERS; t++){
+    const row = document.createElement('div');
+    row.className = 'quest-row';
+    const unlocked = t<=reached;
+    const freeClaimed = st.claimedFree.includes(t);
+    const premClaimed = st.claimedPremium.includes(t);
+    row.innerHTML = `<div>ТИР ${t}<div class="quest-progress">Бесплатно: 💎${passFreeReward(t)} · Премиум: 💎${passPremiumReward(t)}</div></div>`;
+    const btnFree = document.createElement('button');
+    btnFree.textContent = freeClaimed ? '✓' : 'БЕСПЛ.';
+    btnFree.disabled = !unlocked || freeClaimed;
+    btnFree.onclick = ()=> claimPassReward(t, 'free');
+    const btnPrem = document.createElement('button');
+    btnPrem.textContent = premClaimed ? '✓' : '🎫';
+    btnPrem.disabled = !unlocked || premClaimed || !st.premium;
+    btnPrem.onclick = ()=> claimPassReward(t, 'premium');
+    row.appendChild(btnFree);
+    row.appendChild(btnPrem);
+    list.appendChild(row);
+  }
+}
+
+/* ===================== ЕЖЕДНЕВНЫЙ БОНУС ===================== */
+function todayKey(){ return new Date().toISOString().slice(0,10); }
+function claimDailyBonus(){
+  if(!currentUser) return;
+  const lastKey = 'pixelArena_dailylast_' + currentUser;
+  const streakKey = 'pixelArena_dailystreak_' + currentUser;
+  const last = localStorage.getItem(lastKey);
+  const today = todayKey();
+  if(last === today){ toast('Бонус уже забран сегодня — приходи завтра'); return; }
+  const yesterday = new Date(Date.now()-86400000).toISOString().slice(0,10);
+  let streak = parseInt(localStorage.getItem(streakKey)||'0',10) || 0;
+  streak = (last === yesterday) ? streak+1 : 1;
+  localStorage.setItem(streakKey, String(streak));
+  localStorage.setItem(lastKey, today);
+  const reward = PX_REWARDS.dailyBase + Math.min(streak-1, 9) * 5;
+  addPX(currentUser, reward, 'ежедневный бонус (день ' + streak + ')');
+  playGoldRainEffect();
+  renderShopQuests();
+}
+
+/* ===================== ЕЖЕДНЕВНЫЕ ЗАДАНИЯ ===================== */
+const QUEST_POOL = [
+  { key:'play3', label:'Сыграй 3 игры', target:3, type:'played', reward:15 },
+  { key:'play6', label:'Сыграй 6 игр', target:6, type:'played', reward:30 },
+  { key:'play10', label:'Сыграй 10 игр', target:10, type:'played', reward:50 },
+  { key:'win1', label:'Одержи 1 победу', target:1, type:'win', reward:20 },
+  { key:'win3', label:'Одержи 3 победы', target:3, type:'win', reward:50 },
+  { key:'win5', label:'Одержи 5 побед', target:5, type:'win', reward:90 },
+  { key:'record1', label:'Побей 1 личный рекорд', target:1, type:'record', reward:25 },
+  { key:'record2', label:'Побей 2 личных рекорда', target:2, type:'record', reward:50 },
+  { key:'shop1', label:'Купи 1 предмет в PIXEL SHOP', target:1, type:'shopbuy', reward:20 },
+  { key:'shop2', label:'Купи 2 предмета в PIXEL SHOP', target:2, type:'shopbuy', reward:45 },
+  { key:'nft1', label:'Приобрети 1 NFT в PIXEL MARKET', target:1, type:'nftbuy', reward:40 },
+  { key:'trynew1', label:'Сыграй в Шашки или Нарды', target:1, type:'newgame', reward:20 },
+  { key:'chat1', label:'Напиши 1 сообщение в чат', target:1, type:'chat', reward:10 },
+];
+// Сколько заданий показываем в течение одного дня
+const QUESTS_PER_DAY = 5;
+
+function seededRandom(seedStr){
+  let h = 0;
+  for(let i=0;i<seedStr.length;i++){ h = (Math.imul(31,h) + seedStr.charCodeAt(i))|0; }
+  return function(){
+    h = (Math.imul(1664525,h) + 1013904223)|0;
+    return ((h>>>0) % 100000) / 100000;
+  };
+}
+function pickDailyQuests(seedStr, srcPool, count){
+  const rnd = seededRandom(seedStr);
+  const pool = (srcPool || QUEST_POOL).slice();
+  for(let i=pool.length-1;i>0;i--){
+    const j = Math.floor(rnd()*(i+1));
+    [pool[i],pool[j]] = [pool[j],pool[i]];
+  }
+  return pool.slice(0, count || QUESTS_PER_DAY).map(q=>q.key);
+}
+function getQuestState(){
+  const key = 'pixelArena_quests_' + currentUser;
+  const today = todayKey();
+  let st = JSON.parse(localStorage.getItem(key) || 'null');
+  if(!st || st.date !== today){
+    st = { date: today, progress:{}, claimed:{}, selected: pickDailyQuests(currentUser + '_' + today) };
+    localStorage.setItem(key, JSON.stringify(st));
+  }
+  if(!st.selected) st.selected = pickDailyQuests(currentUser + '_' + st.date); // на случай старого сохранения
+  return st;
+}
+function saveQuestState(st){ localStorage.setItem('pixelArena_quests_' + currentUser, JSON.stringify(st)); }
+function bumpQuestProgress(type){
+  if(!currentUser) return;
+  const st = getQuestState();
+  QUEST_POOL.filter(q=> q.type===type && st.selected.includes(q.key)).forEach(q=>{
+    st.progress[q.key] = (st.progress[q.key]||0) + 1;
+  });
+  saveQuestState(st);
+  bumpWeeklyQuestProgress(type);
+  renderShopQuests();
+}
+function claimQuest(key){
+  if(!currentUser) return;
+  const st = getQuestState();
+  const q = QUEST_POOL.find(x=>x.key===key);
+  if(!q || st.claimed[key]) return;
+  if((st.progress[key]||0) < q.target){ toast('Задание ещё не выполнено'); return; }
+  st.claimed[key] = true;
+  saveQuestState(st);
+  addPX(currentUser, q.reward, 'задание: ' + q.label);
+  playQuestEffect();
+  renderShopQuests();
+}
+function playQuestEffect(){
+  if(!hasEffect('questfx')) return;
+  const layer = document.getElementById('px-fx-layer');
+  if(!layer) return;
+  for(let i=0;i<8;i++){
+    const p = document.createElement('div');
+    p.className = 'px-fx-particle';
+    p.textContent = '📜';
+    p.style.left = (30 + Math.random()*40) + 'vw';
+    p.style.bottom = '20vh';
+    p.style.animationDelay = (i*0.06)+'s';
+    layer.appendChild(p);
+    setTimeout(()=>p.remove(), 1300);
+  }
+}
+function renderShopQuests(){
+  if(!currentUser) return;
+  const streakKey = 'pixelArena_dailystreak_' + currentUser;
+  const streakEl = document.getElementById('daily-streak');
+  if(streakEl) streakEl.textContent = localStorage.getItem(streakKey) || '0';
+  const lastKey = 'pixelArena_dailylast_' + currentUser;
+  const claimedToday = localStorage.getItem(lastKey) === todayKey();
+  const btn = document.getElementById('daily-bonus-btn');
+  if(btn){
+    btn.disabled = claimedToday;
+    btn.textContent = claimedToday ? '✅ БОНУС ЗАБРАН' : '🎁 ЗАБРАТЬ ЕЖЕДНЕВНЫЙ БОНУС';
+  }
+  const list = document.getElementById('quest-list');
+  if(!list) return;
+  const st = getQuestState();
+  list.innerHTML = '';
+  st.selected.map(k=>QUEST_POOL.find(q=>q.key===k)).filter(Boolean).forEach(q=>{
+    const prog = Math.min(st.progress[q.key]||0, q.target);
+    const done = prog >= q.target;
+    const claimed = !!st.claimed[q.key];
+    const row = document.createElement('div');
+    row.className = 'quest-row';
+    row.innerHTML = `<div>${q.label}<div class="quest-progress">${prog}/${q.target} · 💎${q.reward} PX</div></div>`;
+    const btn2 = document.createElement('button');
+    btn2.textContent = claimed ? 'ПОЛУЧЕНО' : 'ЗАБРАТЬ';
+    btn2.disabled = claimed || !done;
+    btn2.onclick = ()=> claimQuest(q.key);
+    row.appendChild(btn2);
+    list.appendChild(row);
+  });
+  renderWeeklyQuests();
+  renderChallengeCard();
+}
+
+/* ===================== ЕЖЕНЕДЕЛЬНЫЕ ЗАДАНИЯ ===================== */
+const WEEK_QUEST_POOL = [
+  { key:'wplay15', label:'Сыграй 15 игр за неделю', target:15, type:'played', reward:100 },
+  { key:'wplay30', label:'Сыграй 30 игр за неделю', target:30, type:'played', reward:180 },
+  { key:'wwin8', label:'Одержи 8 побед за неделю', target:8, type:'win', reward:160 },
+  { key:'wwin15', label:'Одержи 15 побед за неделю', target:15, type:'win', reward:280 },
+  { key:'wrecord4', label:'Побей 4 личных рекорда', target:4, type:'record', reward:150 },
+  { key:'wshop3', label:'Купи 3 предмета в PIXEL SHOP', target:3, type:'shopbuy', reward:150 },
+  { key:'wnft2', label:'Приобрети 2 NFT в PIXEL MARKET', target:2, type:'nftbuy', reward:220 },
+  { key:'wnewgame2', label:'Сыграй в Шашки и в Нарды', target:2, type:'newgame', reward:140 },
+];
+const WEEKLY_QUESTS_COUNT = 3;
+function getWeekKey(){ return 'wk' + Math.floor(Date.now() / (7*86400000)); }
+function getWeeklyQuestState(){
+  const key = 'pixelArena_wquests_' + currentUser;
+  const week = getWeekKey();
+  let st = JSON.parse(localStorage.getItem(key) || 'null');
+  if(!st || st.week !== week){
+    st = { week, progress:{}, claimed:{}, selected: pickDailyQuests(currentUser + '_' + week + '_weekly', WEEK_QUEST_POOL, WEEKLY_QUESTS_COUNT) };
+    localStorage.setItem(key, JSON.stringify(st));
+  }
+  return st;
+}
+function saveWeeklyQuestState(st){ localStorage.setItem('pixelArena_wquests_' + currentUser, JSON.stringify(st)); }
+function bumpWeeklyQuestProgress(type){
+  if(!currentUser) return;
+  const st = getWeeklyQuestState();
+  WEEK_QUEST_POOL.filter(q=> q.type===type && st.selected.includes(q.key)).forEach(q=>{
+    st.progress[q.key] = (st.progress[q.key]||0) + 1;
+  });
+  saveWeeklyQuestState(st);
+  renderWeeklyQuests();
+}
+function claimWeeklyQuest(key){
+  if(!currentUser) return;
+  const st = getWeeklyQuestState();
+  const q = WEEK_QUEST_POOL.find(x=>x.key===key);
+  if(!q || st.claimed[key]) return;
+  if((st.progress[key]||0) < q.target){ toast('Задание ещё не выполнено'); return; }
+  st.claimed[key] = true;
+  saveWeeklyQuestState(st);
+  addPX(currentUser, q.reward, 'недельное задание: ' + q.label);
+  playQuestEffect();
+  renderWeeklyQuests();
+}
+function renderWeeklyQuests(){
+  const list = document.getElementById('weekly-quest-list');
+  if(!list || !currentUser) return;
+  const st = getWeeklyQuestState();
+  list.innerHTML = '';
+  st.selected.map(k=>WEEK_QUEST_POOL.find(q=>q.key===k)).filter(Boolean).forEach(q=>{
+    const prog = Math.min(st.progress[q.key]||0, q.target);
+    const done = prog >= q.target;
+    const claimed = !!st.claimed[q.key];
+    const row = document.createElement('div');
+    row.className = 'quest-row';
+    row.innerHTML = `<div>${q.label}<div class="quest-progress">${prog}/${q.target} · 💎${q.reward} PX</div></div>`;
+    const btn = document.createElement('button');
+    btn.textContent = claimed ? 'ПОЛУЧЕНО' : 'ЗАБРАТЬ';
+    btn.disabled = claimed || !done;
+    btn.onclick = ()=> claimWeeklyQuest(q.key);
+    row.appendChild(btn);
+    list.appendChild(row);
+  });
+}
+
+/* ===================== PIXEL SHOP: ТОВАРЫ ===================== */
+const SHOP_CATALOG = {
+  themes: [
+    { key:'matrix', name:'MATRIX', ico:'🟩', price:500 },
+    { key:'cyber', name:'CYBER', ico:'🟪', price:1000 },
+    { key:'purple', name:'PURPLE NIGHT', ico:'🟣', price:1500 },
+    { key:'sunset', name:'SUNSET', ico:'🟠', price:900 },
+    { key:'ocean', name:'OCEAN DEEP', ico:'🔵', price:1100 },
+    { key:'bloodmoon', name:'BLOOD MOON', ico:'🔴', price:2000 },
+    { key:'forest', name:'FOREST NEON', ico:'🟢', price:1300 },
+    { key:'goldenhour', name:'GOLDEN HOUR', ico:'🟡', price:1700 },
+  ],
+  frames: [
+    { key:'bronze', name:'BRONZE', ico:'🥉', price:300 },
+    { key:'silver', name:'SILVER', ico:'🥈', price:550 },
+    { key:'neon', name:'NEON', ico:'💠', price:800 },
+    { key:'ice', name:'ICE', ico:'❄️', price:1200 },
+    { key:'fire', name:'FIRE', ico:'🔥', price:1800 },
+    { key:'legendary', name:'LEGENDARY', ico:'👑', price:3000 },
+    { key:'diamond', name:'DIAMOND', ico:'💎', price:4000 },
+    { key:'shadow', name:'SHADOW', ico:'🌑', price:1000 },
+  ],
+  effects: [
+    { key:'victory', name:'ЭФФЕКТ ПОБЕДЫ', ico:'🎉', price:600 },
+    { key:'profileanim', name:'АНИМАЦИЯ ПРОФИЛЯ', ico:'🌀', price:900 },
+    { key:'recordfx', name:'ЭФФЕКТ РЕКОРДА', ico:'💥', price:700 },
+    { key:'victorysound', name:'ЗВУК ПОБЕДЫ', ico:'🔊', price:500 },
+    { key:'levelup', name:'ЭФФЕКТ НОВОГО УРОВНЯ', ico:'⭐', price:850 },
+    { key:'goldrain', name:'ЗОЛОТОЙ ДОЖДЬ (БОНУС)', ico:'🌧️', price:750 },
+    { key:'combofx', name:'ЭФФЕКТ СЕРИИ ПОБЕД', ico:'🔥', price:950 },
+    { key:'questfx', name:'ЭФФЕКТ ЗАДАНИЯ', ico:'📜', price:650 },
+    { key:'shopfx', name:'ИСКРЫ ПОКУПКИ', ico:'✨', price:550 },
+  ],
+  badges: [
+    { key:'winner', name:'WINNER', ico:'🏆', price:400 },
+    { key:'wins100', name:'100 WINS', ico:'💯', price:1200 },
+    { key:'top10', name:'TOP 10', ico:'🔟', price:1000 },
+    { key:'pixelmaster', name:'PIXEL MASTER', ico:'🎖️', price:2500 },
+    { key:'snakemaster', name:'SNAKE MASTER', ico:'🐍', price:600 },
+    { key:'chesschamp', name:'CHESS CHAMPION', ico:'♞', price:800 },
+    { key:'speedrunner', name:'SPEEDRUNNER', ico:'⚡', price:700 },
+    { key:'collector', name:'COLLECTOR', ico:'💠', price:1500 },
+    { key:'undefeated', name:'UNDEFEATED', ico:'🛡️', price:1800 },
+    { key:'legend', name:'LEGEND', ico:'🌟', price:5000 },
+  ],
+};
+function getInventory(){
+  const key = 'pixelArena_inventory_' + currentUser;
+  return JSON.parse(localStorage.getItem(key) || 'null') || { themes:[], frames:[], effects:[], badges:[] };
+}
+function saveInventory(inv){ localStorage.setItem('pixelArena_inventory_' + currentUser, JSON.stringify(inv)); }
+function getEquipped(){
+  const key = 'pixelArena_equipped_' + currentUser;
+  return JSON.parse(localStorage.getItem(key) || 'null') || { theme:null, frame:null, effects:[], badges:[] };
+}
+function saveEquipped(eq){ localStorage.setItem('pixelArena_equipped_' + currentUser, JSON.stringify(eq)); applyEquipped(); }
+
+function hasEffect(key){ return getEquipped().effects.includes(key); }
+
+function buyShopItem(category, key){
+  const item = SHOP_CATALOG[category].find(i=>i.key===key);
+  if(!item) return;
+  const inv = getInventory();
+  if(inv[category].includes(key)){ toast('Уже куплено'); return; }
+  if(!spendPX(currentUser, item.price)){ toast('Недостаточно PX'); return; }
+  inv[category].push(key);
+  saveInventory(inv);
+  toast('✅ Куплено: ' + item.name);
+  playShopEffect();
+  bumpQuestProgress('shopbuy');
+  renderShopGrid(category);
+}
+function playShopEffect(){
+  if(!hasEffect('shopfx')) return;
+  const layer = document.getElementById('px-fx-layer');
+  if(!layer) return;
+  for(let i=0;i<10;i++){
+    const p = document.createElement('div');
+    p.className = 'px-fx-particle';
+    p.textContent = '✨';
+    p.style.left = (20 + Math.random()*60) + 'vw';
+    p.style.bottom = (15 + Math.random()*15) + 'vh';
+    p.style.animationDelay = (Math.random()*0.3)+'s';
+    layer.appendChild(p);
+    setTimeout(()=>p.remove(), 1300);
+  }
+}
+function equipShopItem(category, key){
+  const eq = getEquipped();
+  if(category==='theme'){ eq.theme = (eq.theme===key ? null : key); }
+  else if(category==='frame'){ eq.frame = (eq.frame===key ? null : key); }
+  else if(category==='effects'){
+    const i = eq.effects.indexOf(key);
+    if(i>=0) eq.effects.splice(i,1); else eq.effects.push(key);
+  } else if(category==='badges'){
+    const i = eq.badges.indexOf(key);
+    if(i>=0) eq.badges.splice(i,1);
+    else { if(eq.badges.length>=3){ toast('Можно надеть максимум 3 значка'); return; } eq.badges.push(key); }
+  }
+  saveEquipped(eq);
+  renderShopGrid(category==='theme'?'themes':category==='frame'?'frames':category);
+  if(currentUser) showProfile.__dirty = true;
+}
+function applyEquipped(){
+  if(!currentUser) return;
+  const eq = getEquipped();
+  document.body.classList.remove('pixel-theme-matrix','pixel-theme-cyber','pixel-theme-purple');
+  if(eq.theme) document.body.classList.add('pixel-theme-' + eq.theme);
+  const bigAv = document.getElementById('profile-avatar-big');
+  if(bigAv){
+    bigAv.classList.remove('frame-bronze','frame-neon','frame-legendary','fx-anim');
+    if(eq.frame) bigAv.classList.add('frame-' + eq.frame);
+    if(eq.effects.includes('profileanim')) bigAv.classList.add('fx-anim');
+  }
+}
+function renderShopGrid(category){
+  const grid = document.getElementById('shop-grid-' + category);
+  if(!grid) return;
+  const inv = getInventory();
+  const eq = getEquipped();
+  grid.innerHTML = '';
+  SHOP_CATALOG[category].forEach(item=>{
+    const owned = inv[category].includes(item.key);
+    let equipped = false;
+    if(category==='themes') equipped = eq.theme===item.key;
+    else if(category==='frames') equipped = eq.frame===item.key;
+    else if(category==='effects') equipped = eq.effects.includes(item.key);
+    else if(category==='badges') equipped = eq.badges.includes(item.key);
+
+    const card = document.createElement('div');
+    card.className = 'shop-item';
+    const btnLabel = !owned ? ('КУПИТЬ · 💎' + item.price) : (equipped ? 'НАДЕТО ✓' : 'НАДЕТЬ');
+    card.innerHTML = `
+      <div class="shop-item-ico">${item.ico}</div>
+      <div class="shop-item-name">${item.name}</div>
+      ${!owned ? `<div class="shop-item-price">💎 ${item.price} PX</div>` : ''}
+      <button class="${owned ? (equipped?'equipped':'owned') : ''}">${btnLabel}</button>
+    `;
+    card.querySelector('button').onclick = ()=>{
+      if(!owned) buyShopItem(category, item.key);
+      else equipShopItem(category==='themes'?'theme':category==='frames'?'frame':category, item.key);
+    };
+    grid.appendChild(card);
+  });
+}
+function showShopTab(tab, el){
+  document.querySelectorAll('.shop-tab').forEach(t=>t.classList.remove('active'));
+  if(el) el.classList.add('active');
+  document.querySelectorAll('.shop-pane').forEach(p=>p.style.display='none');
+  const pane = document.getElementById('shop-pane-' + tab);
+  if(pane) pane.style.display='';
+  if(tab==='quests') renderShopQuests();
+  else if(tab==='pass') renderPassScreen();
+  else if(tab==='cases') renderCasesGrid();
+  else renderShopGrid(tab);
+}
+function showShop(){
+  if(!currentUser) return;
+  showScreen('shop');
+  updatePxDisplays();
+  showShopTab('quests', document.querySelector('.shop-tab[data-shop-tab="quests"]'));
+}
+
+/* ===================== PIXEL MARKET: NFT ===================== */
+const NFT_COLLECTIONS = [
+  { key:'pixelfrog', name:'Pixel Frog', ico:'🐸', rarity:'common', price:2500, supply:1000 },
+  { key:'cyberbot', name:'Cyber Bot', ico:'🤖', rarity:'rare', price:5000, supply:300 },
+  { key:'voidsword', name:'Void Sword', ico:'🗡️', rarity:'epic', price:8000, supply:50 },
+  { key:'pixeldragon', name:'Pixel Dragon', ico:'🐉', rarity:'legendary', price:25000, supply:10 },
+  { key:'voidcollection', name:'Void Collection', ico:'🌑', rarity:'epic', price:1200, supply:500 },
+];
+const RARITY_LABEL = { common:'ОБЫЧНЫЙ', rare:'РЕДКИЙ', epic:'ЭПИЧЕСКИЙ', legendary:'ЛЕГЕНДАРНЫЙ' };
+
+// Общий "тираж" симулируется локально на этом устройстве — без единого сервера
+// нельзя по-настоящему гарантировать уникальность номера между разными игроками.
+function getMarketState(){
+  const st = JSON.parse(localStorage.getItem('pixelArena_nft_market') || 'null');
+  if(st) return st;
+  const fresh = {};
+  NFT_COLLECTIONS.forEach(c=> fresh[c.key] = 0); // сколько уже продано
+  localStorage.setItem('pixelArena_nft_market', JSON.stringify(fresh));
+  return fresh;
+}
+function saveMarketState(st){ localStorage.setItem('pixelArena_nft_market', JSON.stringify(st)); }
+function getMyNfts(){
+  return JSON.parse(localStorage.getItem('pixelArena_nfts_' + currentUser) || '[]');
+}
+function saveMyNfts(list){ localStorage.setItem('pixelArena_nfts_' + currentUser, JSON.stringify(list)); }
+function getEquippedNfts(){
+  return JSON.parse(localStorage.getItem('pixelArena_nfts_equipped_' + currentUser) || '[]');
+}
+function saveEquippedNfts(list){ localStorage.setItem('pixelArena_nfts_equipped_' + currentUser, JSON.stringify(list)); }
+
+// Минт NFT напрямую (без списания PX) — используется кейсами и крафтом.
+// Возвращает {coll,number} либо null, если тираж коллекции исчерпан.
+function mintNftInternal(collKey){
+  const coll = NFT_COLLECTIONS.find(c=>c.key===collKey);
+  if(!coll) return null;
+  const st = getMarketState();
+  const sold = st[collKey] || 0;
+  if(sold >= coll.supply) return null;
+  const number = sold + 1;
+  st[collKey] = number;
+  saveMarketState(st);
+  const entry = { coll: collKey, number, acquired: Date.now() };
+  const mine = getMyNfts();
+  mine.push(entry);
+  saveMyNfts(mine);
+  return entry;
+}
+function buyNft(collKey){
+  const coll = NFT_COLLECTIONS.find(c=>c.key===collKey);
+  if(!coll) return;
+  const st = getMarketState();
+  const sold = st[collKey] || 0;
+  if(sold >= coll.supply){ toast('Коллекция распродана'); return; }
+  if(!spendPX(currentUser, coll.price)){ toast('Недостаточно PX'); return; }
+  const entry = mintNftInternal(collKey);
+  toast('🎉 Получен NFT: ' + coll.name + ' #' + String(entry.number).padStart(4,'0'));
+  bumpQuestProgress('nftbuy');
+  renderMarket();
+  renderProfileCollection();
+}
+function renderMarket(){
+  const grid = document.getElementById('market-grid');
+  if(!grid) return;
+  const st = getMarketState();
+  grid.innerHTML = '';
+  NFT_COLLECTIONS.forEach(coll=>{
+    const sold = st[coll.key] || 0;
+    const left = coll.supply - sold;
+    const pct = Math.round((sold / coll.supply) * 100);
+    const card = document.createElement('div');
+    card.className = 'nft-card rarity-' + coll.rarity;
+    card.innerHTML = `
+      <div class="nft-ico">${coll.ico}</div>
+      <div class="nft-name">${coll.name}</div>
+      <div class="nft-rarity">${RARITY_LABEL[coll.rarity]}</div>
+      <div class="nft-supply">${sold}/${coll.supply} ВЫПУЩЕНО</div>
+      <div class="nft-bar"><div class="nft-bar-fill" style="width:${pct}%;"></div></div>
+      <div class="nft-price">💎 ${coll.price.toLocaleString('ru-RU')} PX</div>
+      <button ${left<=0?'disabled':''}>${left<=0?'РАСПРОДАНО':'КУПИТЬ #'+String(sold+1).padStart(4,'0')}</button>
+    `;
+    card.querySelector('button').onclick = ()=> buyNft(coll.key);
+    grid.appendChild(card);
+  });
+}
+function showMarket(){
+  if(!currentUser) return;
+  showScreen('market');
+  updatePxDisplays();
+  renderMarket();
+  renderCraftSection();
+}
+
+/* ===================== КЕЙСЫ (ЛУТБОКСЫ) ===================== */
+const CASES_CATALOG = [
+  { key:'common', name:'ОБЫЧНЫЙ КЕЙС', ico:'📦', price:300, pool:[
+    { type:'px', amount:80, weight:35 },
+    { type:'px', amount:150, weight:20 },
+    { type:'shop', category:'themes', weight:15 },
+    { type:'shop', category:'frames', weight:15 },
+    { type:'shop', category:'effects', weight:10 },
+    { type:'nft', coll:'pixelfrog', weight:5 },
+  ]},
+  { key:'rare', name:'РЕДКИЙ КЕЙС', ico:'🎁', price:1200, pool:[
+    { type:'px', amount:300, weight:25 },
+    { type:'px', amount:600, weight:15 },
+    { type:'shop', category:'frames', weight:15 },
+    { type:'shop', category:'badges', weight:15 },
+    { type:'nft', coll:'pixelfrog', weight:15 },
+    { type:'nft', coll:'cyberbot', weight:12 },
+    { type:'nft', coll:'voidcollection', weight:3 },
+  ]},
+  { key:'legendary', name:'ЛЕГЕНДАРНЫЙ КЕЙС', ico:'👑', price:3000, pool:[
+    { type:'px', amount:1000, weight:20 },
+    { type:'shop', category:'badges', weight:15 },
+    { type:'nft', coll:'cyberbot', weight:25 },
+    { type:'nft', coll:'voidcollection', weight:20 },
+    { type:'nft', coll:'voidsword', weight:15 },
+    { type:'nft', coll:'pixeldragon', weight:5 },
+  ]},
+];
+function rollWeighted(pool){
+  const total = pool.reduce((s,i)=>s+i.weight,0);
+  let r = Math.random()*total;
+  for(const item of pool){ if(r < item.weight) return item; r -= item.weight; }
+  return pool[pool.length-1];
+}
+function openCase(caseKey){
+  const box = CASES_CATALOG.find(c=>c.key===caseKey);
+  if(!box) return;
+  if(!spendPX(currentUser, box.price)){ toast('Недостаточно PX'); return; }
+  const picked = rollWeighted(box.pool);
+  let resultIco='💎', resultLabel='', resultDetail='';
+  if(picked.type==='px'){
+    addPX(currentUser, picked.amount, 'кейс: ' + box.name);
+    resultIco='💎'; resultLabel=picked.amount+' PX'; resultDetail='Немного валюты — не повезло с редким призом.';
+  } else if(picked.type==='shop'){
+    const inv = getInventory();
+    const owned = inv[picked.category];
+    const candidates = SHOP_CATALOG[picked.category].filter(i=>!owned.includes(i.key));
+    if(candidates.length===0){
+      const fallback = Math.round(200 + Math.random()*300);
+      addPX(currentUser, fallback, 'кейс (дубликат)');
+      resultIco='💎'; resultLabel=fallback+' PX'; resultDetail='Всё из этой категории уже куплено — заменили на PX.';
+    } else {
+      const item = candidates[Math.floor(Math.random()*candidates.length)];
+      owned.push(item.key);
+      saveInventory(inv);
+      resultIco=item.ico; resultLabel=item.name; resultDetail='Новый предмет добавлен в инвентарь — экипируй в PIXEL SHOP.';
+    }
+  } else if(picked.type==='nft'){
+    const entry = mintNftInternal(picked.coll);
+    if(!entry){
+      const coll = NFT_COLLECTIONS.find(c=>c.key===picked.coll);
+      const fallback = Math.round((coll?coll.price:500)/4);
+      addPX(currentUser, fallback, 'кейс (тираж распродан)');
+      resultIco='💎'; resultLabel=fallback+' PX'; resultDetail='Коллекция уже распродана — заменили на PX.';
+    } else {
+      const coll = NFT_COLLECTIONS.find(c=>c.key===picked.coll);
+      resultIco = coll.ico; resultLabel = coll.name + ' #' + String(entry.number).padStart(4,'0');
+      resultDetail = 'Редкость: ' + (RARITY_LABEL[coll.rarity]||coll.rarity) + '. NFT добавлен в PIXEL MARKET → MY COLLECTION.';
+      bumpQuestProgress('nftbuy');
+    }
+  }
+  showCaseResultModal(box, resultIco, resultLabel, resultDetail);
+  renderCasesGrid();
+  renderProfileCollection();
+}
+function showCaseResultModal(box, ico, label, detail){
+  const root = document.getElementById('nft-modal-root');
+  root.innerHTML = `
+    <div class="nft-modal-backdrop" onclick="if(event.target===this) closeNftModal();">
+      <div class="nft-modal">
+        <div class="nft-modal-ico">${ico}</div>
+        <h3>${label}</h3>
+        <div class="nft-modal-row"><span>ИЗ КЕЙСА</span><b>${box.name}</b></div>
+        <p style="font-size:8px;color:var(--accent2);margin:8px 0;">${detail}</p>
+        <button onclick="closeNftModal()">ЗАКРЫТЬ</button>
+      </div>
+    </div>
+  `;
+  sfx('win');
+  playPxParticles();
+}
+function renderCasesGrid(){
+  const grid = document.getElementById('cases-grid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  CASES_CATALOG.forEach(box=>{
+    const card = document.createElement('div');
+    card.className = 'nft-card rarity-' + (box.key==='legendary'?'legendary':box.key==='rare'?'epic':'common');
+    card.innerHTML = `
+      <div class="nft-ico">${box.ico}</div>
+      <div class="nft-name">${box.name}</div>
+      <div class="nft-price">💎 ${box.price.toLocaleString('ru-RU')} PX</div>
+      <button>ОТКРЫТЬ</button>
+    `;
+    card.querySelector('button').onclick = ()=> openCase(box.key);
+    grid.appendChild(card);
+  });
+}
+
+/* ===================== КРАФТ NFT ===================== */
+const CRAFT_RECIPES = [
+  { key:'frogToBot', inputColl:'pixelfrog', inputCount:3, outputColl:'cyberbot', label:'3× Pixel Frog → 1× Cyber Bot' },
+];
+function craftNft(recipeKey){
+  const recipe = CRAFT_RECIPES.find(r=>r.key===recipeKey);
+  if(!recipe) return;
+  const mine = getMyNfts();
+  const matching = mine.filter(n=>n.coll===recipe.inputColl);
+  if(matching.length < recipe.inputCount){ toast('Недостаточно NFT для крафта'); return; }
+  let toRemove = recipe.inputCount;
+  const kept = mine.filter(n=>{
+    if(n.coll===recipe.inputColl && toRemove>0){ toRemove--; return false; }
+    return true;
+  });
+  saveMyNfts(kept);
+  const entry = mintNftInternal(recipe.outputColl);
+  if(!entry){
+    const coll = NFT_COLLECTIONS.find(c=>c.key===recipe.outputColl);
+    const fallback = Math.round((coll?coll.price:500)/3);
+    addPX(currentUser, fallback, 'крафт (тираж распродан)');
+    toast('Тираж результата распродан — начислили PX компенсацией');
+  } else {
+    const coll = NFT_COLLECTIONS.find(c=>c.key===recipe.outputColl);
+    toast('🔨 Создан NFT: ' + coll.name + ' #' + String(entry.number).padStart(4,'0'));
+  }
+  renderMarket();
+  renderCraftSection();
+  renderProfileCollection();
+}
+function renderCraftSection(){
+  const el = document.getElementById('craft-section');
+  if(!el || !currentUser) return;
+  const mine = getMyNfts();
+  el.innerHTML = '<div class="section-label" style="margin-top:0;">🔨 КРАФТ</div>';
+  CRAFT_RECIPES.forEach(recipe=>{
+    const have = mine.filter(n=>n.coll===recipe.inputColl).length;
+    const row = document.createElement('div');
+    row.className = 'quest-row';
+    row.innerHTML = `<div>${recipe.label}<div class="quest-progress">У тебя: ${have}/${recipe.inputCount}</div></div>`;
+    const btn = document.createElement('button');
+    btn.textContent = 'СКРАФТИТЬ';
+    btn.disabled = have < recipe.inputCount;
+    btn.onclick = ()=> craftNft(recipe.key);
+    row.appendChild(btn);
+    el.appendChild(row);
+  });
+}
+
+function openNftModal(nft){
+  const coll = NFT_COLLECTIONS.find(c=>c.key===nft.coll);
+  if(!coll) return;
+  const root = document.getElementById('nft-modal-root');
+  root.innerHTML = `
+    <div class="nft-modal-backdrop" onclick="if(event.target===this) closeNftModal();">
+      <div class="nft-modal">
+        <div class="nft-modal-ico">${coll.ico}</div>
+        <h3>${coll.name} #${String(nft.number).padStart(4,'0')}</h3>
+        <div class="nft-modal-row"><span>РЕДКОСТЬ</span><b>${RARITY_LABEL[coll.rarity]}</b></div>
+        <div class="nft-modal-row"><span>ЦЕНА</span><b>💎 ${coll.price.toLocaleString('ru-RU')} PX</b></div>
+        <div class="nft-modal-row"><span>ВЛАДЕЛЕЦ</span><b>ТЫ</b></div>
+        <div class="nft-modal-row"><span>НОМЕР</span><b>#${String(nft.number).padStart(4,'0')} / ${coll.supply}</b></div>
+        <button onclick="toggleEquipNft('${nft.coll}', ${nft.number})">${getEquippedNfts().some(e=>e.coll===nft.coll&&e.number===nft.number) ? 'УБРАТЬ ИЗ ПРОФИЛЯ' : 'ПОКАЗАТЬ В ПРОФИЛЕ'}</button>
+        <button class="btn-ghost" onclick="closeNftModal()" style="margin-top:8px;">ЗАКРЫТЬ</button>
+      </div>
+    </div>
+  `;
+}
+function closeNftModal(){ document.getElementById('nft-modal-root').innerHTML = ''; }
+function toggleEquipNft(collKey, number){
+  let eq = getEquippedNfts();
+  const idx = eq.findIndex(e=>e.coll===collKey && e.number===number);
+  if(idx>=0){ eq.splice(idx,1); }
+  else{
+    if(eq.length>=3){ toast('Можно выставить максимум 3 NFT'); return; }
+    eq.push({coll:collKey, number});
+  }
+  saveEquippedNfts(eq);
+  closeNftModal();
+  renderProfileCollection();
+}
+function renderProfileCollection(){
+  if(!currentUser) return;
+  const mine = getMyNfts();
+  const equippedList = getEquippedNfts();
+  const slotsEl = document.getElementById('profile-nft-slots');
+  if(slotsEl){
+    slotsEl.innerHTML = '';
+    for(let i=0;i<3;i++){
+      const nft = equippedList[i];
+      const slot = document.createElement('div');
+      slot.className = 'nft-slot' + (nft ? ' filled' : '');
+      if(nft){
+        const coll = NFT_COLLECTIONS.find(c=>c.key===nft.coll);
+        slot.innerHTML = (coll?coll.ico:'💠') + `<span class="nft-num">#${String(nft.number).padStart(4,'0')}</span>`;
+        slot.onclick = ()=> openNftModal(nft);
+      } else {
+        slot.textContent = '+';
+        slot.onclick = ()=>{
+          if(!mine.length){ toast('У тебя пока нет NFT — загляни в PIXEL MARKET'); return; }
+          showMarket();
+        };
+      }
+      slotsEl.appendChild(slot);
+    }
+  }
+  const countEl = document.getElementById('profile-nft-count');
+  const valueEl = document.getElementById('profile-nft-value');
+  if(countEl) countEl.textContent = mine.length;
+  if(valueEl){
+    const value = mine.reduce((sum,n)=>{
+      const c = NFT_COLLECTIONS.find(x=>x.key===n.coll);
+      return sum + (c ? c.price : 0);
+    }, 0);
+    valueEl.textContent = value.toLocaleString('ru-RU');
+  }
+}
+
+/* ===================== УРОВЕНЬ / XP / РЕЙТИНГ ===================== */
+function getXP(profile){ return (profile.totalScore||0) + (profile.gamesPlayed||0) * 10; }
+function getLevel(xp){ return 1 + Math.floor(xp / 1000); }
+function getLocalRank(user){
+  const users = getUsers();
+  const list = Object.keys(users).map(u=> ({ u, xp: getXP(getProfile(u)) }));
+  list.sort((a,b)=> b.xp - a.xp);
+  const idx = list.findIndex(x=>x.u===user);
+  return { rank: idx+1, total: list.length };
+}
+
+/* ===================== ЭФФЕКТЫ ===================== */
+function playVictoryEffect(){
+  if(!hasEffect('victory')) return;
+  const layer = document.getElementById('px-fx-layer');
+  if(!layer) return;
+  const icons = ['🎉','✨','🏆','💥'];
+  for(let i=0;i<14;i++){
+    const p = document.createElement('div');
+    p.className = 'px-fx-particle';
+    p.textContent = icons[i % icons.length];
+    p.style.left = (10 + Math.random()*80) + 'vw';
+    p.style.bottom = (5 + Math.random()*10) + 'vh';
+    p.style.animationDelay = (Math.random()*0.4) + 's';
+    layer.appendChild(p);
+    setTimeout(()=>p.remove(), 1500);
+  }
+}
+function playRecordEffect(){
+  if(!hasEffect('recordfx')) return;
+  const layer = document.getElementById('px-fx-layer');
+  if(!layer) return;
+  for(let i=0;i<10;i++){
+    const p = document.createElement('div');
+    p.className = 'px-fx-particle';
+    p.textContent = '💥';
+    p.style.left = '50vw';
+    p.style.bottom = '40vh';
+    p.style.transform = `rotate(${(i/10)*360}deg) translateX(60px)`;
+    p.style.animationDelay = (i*0.02)+'s';
+    layer.appendChild(p);
+    setTimeout(()=>p.remove(), 1300);
+  }
+}
+function playVictorySoundIfOwned(){
+  if(!hasEffect('victorysound')) return false;
+  [660,880,1100,1320].forEach((f,i)=> setTimeout(()=>beep(f,0.14,'square',0.07), i*90));
+  return true;
+}
+function playLevelUpEffect(){
+  if(!hasEffect('levelup')) return;
+  const layer = document.getElementById('px-fx-layer');
+  if(!layer) return;
+  beep(523,0.12,'square',0.07); setTimeout(()=>beep(784,0.16,'square',0.07),120); setTimeout(()=>beep(1047,0.22,'square',0.08),260);
+  for(let i=0;i<10;i++){
+    const p = document.createElement('div');
+    p.className = 'px-fx-particle';
+    p.textContent = '⭐';
+    p.style.left = (15 + Math.random()*70) + 'vw';
+    p.style.bottom = (15 + Math.random()*10) + 'vh';
+    p.style.animationDelay = (Math.random()*0.3) + 's';
+    layer.appendChild(p);
+    setTimeout(()=>p.remove(), 1500);
+  }
+}
+function playGoldRainEffect(){
+  if(!hasEffect('goldrain')) return;
+  const layer = document.getElementById('px-fx-layer');
+  if(!layer) return;
+  for(let i=0;i<18;i++){
+    const p = document.createElement('div');
+    p.className = 'px-fx-particle';
+    p.textContent = '💰';
+    p.style.left = Math.random()*100 + 'vw';
+    p.style.bottom = (60 + Math.random()*20) + 'vh';
+    p.style.animationDelay = (Math.random()*0.6) + 's';
+    layer.appendChild(p);
+    setTimeout(()=>p.remove(), 1800);
+  }
+}
+function playComboEffect(){
+  if(!hasEffect('combofx')) return;
+  const layer = document.getElementById('px-fx-layer');
+  if(!layer) return;
+  beep(220,0.08,'sawtooth',0.06); setTimeout(()=>beep(330,0.08,'sawtooth',0.06),80); setTimeout(()=>beep(440,0.1,'sawtooth',0.07),160);
+  for(let i=0;i<12;i++){
+    const p = document.createElement('div');
+    p.className = 'px-fx-particle';
+    p.textContent = '🔥';
+    p.style.left = '50vw';
+    p.style.bottom = '35vh';
+    p.style.transform = `rotate(${(i/12)*360}deg) translateX(70px)`;
+    p.style.animationDelay = (i*0.02)+'s';
+    layer.appendChild(p);
+    setTimeout(()=>p.remove(), 1400);
+  }
+}
+
+/* ===================== ИНИЦИАЛИЗАЦИЯ PX-СИСТЕМЫ ДЛЯ ПОЛЬЗОВАТЕЛЯ ===================== */
+function initPxSystemForUser(){
+  if(!currentUser) return;
+  updatePxDisplays();
+  applyEquipped();
+  renderProfileCollection();
+}
+
 function showProfile(){
   if(!currentUser) return;
   showScreen('profile');
   const users = getUsers();
   const av = (users[currentUser] && users[currentUser].avatar) || AVATARS[0];
   document.getElementById('profile-avatar-big').textContent = av;
-  document.getElementById('profile-name').textContent = currentUser;
+  document.getElementById('profile-name').textContent = (users[currentUser] && users[currentUser].displayName) || currentUser;
   const p = getProfile(currentUser);
   document.getElementById('profile-games').textContent = p.gamesPlayed || 0;
   document.getElementById('profile-totalscore').textContent = Math.round(p.totalScore || 0);
   document.getElementById('profile-ach-count').textContent = (p.achievements||[]).length + '/' + ACHIEVEMENTS.length;
   document.getElementById('profile-favgame').textContent = p.lastGame ? p.lastGame.toUpperCase() : '—';
+
+  const xp = getXP(p);
+  document.getElementById('profile-lvl').textContent = getLevel(xp);
+  document.getElementById('profile-xp').textContent = xp.toLocaleString('ru-RU');
+  const rankInfo = getLocalRank(currentUser);
+  document.getElementById('profile-rank').textContent = '#' + rankInfo.rank + ' ИЗ ' + rankInfo.total;
+  document.getElementById('profile-px').textContent = getWallet(currentUser).toLocaleString('ru-RU');
+
+  const lg = getLeagueState();
+  const div = divisionForXp(lg.xp);
+  const nd = nextDivision(lg.xp);
+  const leagueEl = document.getElementById('profile-league');
+  if(leagueEl){
+    leagueEl.innerHTML = `<span class="badge-chip">${div.ico} ${div.name}</span>` +
+      (nd ? ` <span style="font-size:7px;color:var(--accent2);">до ${nd.name}: ${nd.min - lg.xp} XP</span>` : ' <span style="font-size:7px;color:var(--gold);">МАКСИМУМ ДИВИЗИОНА</span>');
+  }
+
+  const badgesRow = document.getElementById('profile-badges');
+  if(badgesRow){
+    const eq = getEquipped();
+    badgesRow.innerHTML = eq.badges.map(bk=>{
+      const b = SHOP_CATALOG.badges.find(x=>x.key===bk);
+      return b ? `<span class="badge-chip">${b.ico} ${b.name}</span>` : '';
+    }).join('');
+  }
+  applyEquipped();
+  renderProfileCollection();
+
   const grid = document.getElementById('profile-ach-grid');
   grid.innerHTML = '';
   ACHIEVEMENTS.forEach(a=>{
@@ -2579,9 +4021,11 @@ function sendChat(forcedText){
   const input = document.getElementById('chat-input');
   const text = forcedText || input.value.trim();
   if(!text) return;
-  const user = currentUser || 'ГОСТЬ';
+  const uAll = getUsers();
+  const user = (currentUser && uAll[currentUser] && uAll[currentUser].displayName) || currentUser || 'ГОСТЬ';
   appendChatMsg(user, text);
   if(chatChannel) chatChannel.postMessage({ user, text, t: Date.now() });
+  bumpQuestProgress('chat');
   if(!forcedText) input.value = '';
 }
 if(chatChannel){
@@ -2629,7 +4073,7 @@ function tttClick(i){
   if(win || tttBoard.every(v=>v)){
     tttOver = true;
     renderTTT();
-    if(win){ sfx('win'); if(tttTurn==='X'){ if(saveScore('ttt', (getScores()[currentUser]?.ttt||0)+1)){} bumpProfile('ttt',30); checkAchievements('ttt',1); toast('X ПОБЕДИЛИ!'); } else toast('O ПОБЕДИЛИ!'); }
+    if(win){ sfx('win'); if(tttTurn==='X'){ if(saveScore('ttt', (getScores()[currentUser]?.ttt||0)+1)){} bumpProfile('ttt',30,'win'); checkAchievements('ttt',1); toast('X ПОБЕДИЛИ!'); } else { if(tttMode==='ai') registerLoss(); toast('O ПОБЕДИЛИ!'); } }
     else toast('НИЧЬЯ');
     return;
   }
@@ -2721,7 +4165,13 @@ function renderReversi(){
       const winner = bCount>wCount ? 'ЧЁРНЫЕ' : (wCount>bCount ? 'БЕЛЫЕ' : 'НИЧЬЯ');
       document.getElementById('rev-status').textContent = 'ИГРА ОКОНЧЕНА: ' + winner;
       sfx('win');
-      if(bCount>wCount){ saveScore('reversi', (getScores()[currentUser]?.reversi||0)+1); bumpProfile('reversi',40); checkAchievements('reversi',1); }
+      if(bCount>wCount){
+        saveScore('reversi', (getScores()[currentUser]?.reversi||0)+1);
+        bumpProfile('reversi',40,'win');
+        checkAchievements('reversi',1);
+      } else if(wCount>bCount){
+        registerLoss();
+      }
       return;
     } else {
       toast('Нет ходов — пропуск хода');
@@ -2738,6 +4188,426 @@ function revClick(r,c){
   sfx('capture');
   revTurn = revTurn==='b'?'w':'b';
   renderReversi();
+}
+
+/* ===================== ШАШКИ ===================== */
+let chBoard, chTurn, chSelected, chOver, chLegalCache, chAnimating = false;
+const CH_PLAYER = 'w', CH_AI = 'b';
+function restartCheckers(){
+  chBoard = Array.from({length:8},()=>Array(8).fill(null));
+  for(let r=0;r<3;r++) for(let c=0;c<8;c++) if((r+c)%2===1) chBoard[r][c] = {color:'b', king:false};
+  for(let r=5;r<8;r++) for(let c=0;c<8;c++) if((r+c)%2===1) chBoard[r][c] = {color:'w', king:false};
+  chTurn = CH_PLAYER;
+  chSelected = null;
+  chOver = false;
+  chAnimating = false;
+  bumpQuestProgress('newgame');
+  renderCheckers();
+}
+function chDirs(piece){
+  if(piece.king) return [[-1,-1],[-1,1],[1,-1],[1,1]];
+  return piece.color==='w' ? [[-1,-1],[-1,1]] : [[1,-1],[1,1]];
+}
+function chPieceMoves(board, r, c){
+  const piece = board[r][c];
+  if(!piece) return [];
+  const moves = [];
+  const dirs = piece.king ? [[-1,-1],[-1,1],[1,-1],[1,1]] : chDirs(piece);
+  dirs.forEach(([dr,dc])=>{
+    const sr=r+dr, sc=c+dc;
+    if(sr<0||sr>7||sc<0||sc>7) return;
+    if(!board[sr][sc]){ moves.push({from:[r,c], to:[sr,sc], capture:null}); }
+    else if(board[sr][sc].color !== piece.color){
+      const jr=r+dr*2, jc=c+dc*2;
+      if(jr>=0&&jr<8&&jc>=0&&jc<8&&!board[jr][jc]){
+        moves.push({from:[r,c], to:[jr,jc], capture:[sr,sc]});
+      }
+    }
+  });
+  return moves;
+}
+function chAllMoves(board, color){
+  let all = [];
+  for(let r=0;r<8;r++) for(let c=0;c<8;c++){
+    if(board[r][c] && board[r][c].color===color) all = all.concat(chPieceMoves(board,r,c));
+  }
+  return all;
+}
+function chMandatory(board, color){
+  const all = chAllMoves(board, color);
+  const caps = all.filter(m=>m.capture);
+  return caps.length ? caps : all;
+}
+function renderCheckers(){
+  const grid = document.getElementById('checkers-grid');
+  grid.innerHTML = '';
+  chLegalCache = chMandatory(chBoard, chTurn);
+  let rCount=0, wCount=0;
+  for(let r=0;r<8;r++) for(let c=0;c<8;c++){
+    if(chBoard[r][c]){ if(chBoard[r][c].color==='b') rCount++; else wCount++; }
+    const cell = document.createElement('div');
+    const playable = (r+c)%2===1;
+    cell.className = 'ch-cell ' + (playable ? 'dark playable' : 'light');
+    cell.dataset.r = r; cell.dataset.c = c;
+    const piece = chBoard[r][c];
+    if(piece){
+      const p = document.createElement('div');
+      p.className = 'ch-piece ' + piece.color + (piece.king ? ' king' : '');
+      if(piece.king){ const k = document.createElement('span'); k.className='ch-king-ico'; k.textContent='♛'; p.appendChild(k); }
+      cell.appendChild(p);
+    }
+    if(chSelected && chSelected[0]===r && chSelected[1]===c) cell.classList.add('selected');
+    if(chSelected && chLegalCache.some(m=>m.from[0]===chSelected[0]&&m.from[1]===chSelected[1]&&m.to[0]===r&&m.to[1]===c)){
+      cell.classList.add('hint');
+    }
+    cell.onclick = ()=> chClick(r,c);
+    grid.appendChild(cell);
+  }
+  document.getElementById('ch-red').textContent = rCount;
+  document.getElementById('ch-white').textContent = wCount;
+  document.getElementById('ch-status').textContent = chOver ? 'ИГРА ОКОНЧЕНА' : (chTurn===CH_PLAYER ? 'ХОД: БЕЛЫЕ (ТЫ)' : 'ХОД: ЧЁРНЫЕ (БОТ)');
+  if(!chOver){
+    if(rCount===0){ chEndGame(true); return; }
+    if(wCount===0){ chEndGame(false); return; }
+    if(chLegalCache.length===0){ chEndGame(chTurn===CH_AI); return; }
+    if(chTurn===CH_AI && !chAnimating) setTimeout(chAiMove, 450);
+  }
+}
+function chEndGame(playerWon){
+  chOver = true;
+  sfx(playerWon?'win':'boom');
+  if(playerWon){
+    const newCount = (getScores()[currentUser]?.checkers||0)+1;
+    const isNew = saveScore('checkers', newCount);
+    bumpProfile('checkers', 60, 'win', isNew);
+    const gotKing = chBoard.some(row=>row.some(p=>p && p.color===CH_PLAYER && p.king));
+    checkAchievements('checkers', newCount, { king: gotKing });
+    toast('🏆 ПОБЕДА В ШАШКАХ!', 3000);
+  } else {
+    registerLoss();
+    toast('💀 Поражение в шашках.', 2600);
+  }
+  const statusEl = document.getElementById('ch-status');
+  if(statusEl) statusEl.textContent = playerWon ? 'ПОБЕДА!' : 'ПОРАЖЕНИЕ';
+}
+function chClick(r,c){
+  if(chOver || chTurn!==CH_PLAYER || chAnimating) return;
+  const piece = chBoard[r][c];
+  if(piece && piece.color===CH_PLAYER && chLegalCache.some(m=>m.from[0]===r&&m.from[1]===c)){
+    chSelected = [r,c];
+    renderCheckers();
+    return;
+  }
+  if(chSelected){
+    const move = chLegalCache.find(m=>m.from[0]===chSelected[0]&&m.from[1]===chSelected[1]&&m.to[0]===r&&m.to[1]===c);
+    if(move){ chAnimateAndApply(move); return; }
+  }
+  chSelected = null;
+  renderCheckers();
+}
+function chCellEl(r,c){ return document.querySelector('#checkers-grid .ch-cell[data-r="'+r+'"][data-c="'+c+'"]'); }
+function chAnimateAndApply(move){
+  const fromEl = chCellEl(move.from[0], move.from[1]);
+  const toEl = chCellEl(move.to[0], move.to[1]);
+  const pieceEl = fromEl ? fromEl.querySelector('.ch-piece') : null;
+  if(!fromEl || !toEl || !pieceEl){ chApplyMove(move); return; }
+  chAnimating = true;
+  const fromRect = fromEl.getBoundingClientRect();
+  const toRect = toEl.getBoundingClientRect();
+  const dx = toRect.left - fromRect.left, dy = toRect.top - fromRect.top;
+  const clone = pieceEl.cloneNode(true);
+  clone.classList.add('ch-flying-clone');
+  Object.assign(clone.style, { position:'fixed', left:fromRect.left+'px', top:fromRect.top+'px',
+    width:fromRect.width+'px', height:fromRect.height+'px', margin:'0', zIndex:'50',
+    transition:'transform .28s cubic-bezier(.34,1.5,.64,1)' });
+  document.body.appendChild(clone);
+  pieceEl.style.visibility = 'hidden';
+
+  let capClone = null;
+  if(move.capture){
+    const capEl = chCellEl(move.capture[0], move.capture[1]);
+    const capPieceEl = capEl ? capEl.querySelector('.ch-piece') : null;
+    if(capPieceEl){
+      const capRect = capPieceEl.getBoundingClientRect();
+      capClone = capPieceEl.cloneNode(true);
+      Object.assign(capClone.style, { position:'fixed', left:capRect.left+'px', top:capRect.top+'px',
+        width:capRect.width+'px', height:capRect.height+'px', margin:'0', zIndex:'49',
+        transition:'transform .32s ease-in, opacity .32s ease-in' });
+      document.body.appendChild(capClone);
+      capPieceEl.style.visibility = 'hidden';
+      requestAnimationFrame(()=>{
+        capClone.style.transform = 'translateY(-18px) rotate(220deg) scale(.35)';
+        capClone.style.opacity = '0';
+      });
+    }
+  }
+  requestAnimationFrame(()=>{ clone.style.transform = 'translate('+dx+'px,'+dy+'px)'; });
+  setTimeout(()=>{
+    clone.remove();
+    if(capClone) capClone.remove();
+    chAnimating = false;
+    chApplyMove(move);
+  }, 300);
+}
+function chApplyMove(move){
+  const [fr,fc] = move.from, [tr,tc] = move.to;
+  const piece = chBoard[fr][fc];
+  chBoard[fr][fc] = null;
+  if(move.capture){ const [cr,cc] = move.capture; chBoard[cr][cc] = null; sfx('capture'); }
+  else sfx('move');
+  if((piece.color==='w' && tr===0) || (piece.color==='b' && tr===7)) piece.king = true;
+  chBoard[tr][tc] = piece;
+  chSelected = null;
+  // цепь взятий той же шашкой
+  if(move.capture){
+    const further = chPieceMoves(chBoard, tr, tc).filter(m=>m.capture);
+    if(further.length){
+      chSelected = [tr,tc];
+      chLegalCache = further;
+      renderCheckers();
+      if(chTurn===CH_AI) setTimeout(chAiMove, 400);
+      return;
+    }
+  }
+  chTurn = chTurn===CH_PLAYER ? CH_AI : CH_PLAYER;
+  renderCheckers();
+}
+function chAiMove(){
+  if(chOver || chTurn!==CH_AI || chAnimating) return;
+  let moves = chMandatory(chBoard, CH_AI);
+  if(!moves.length) return;
+  moves.sort((a,b)=> (b.capture?1:0) - (a.capture?1:0));
+  const best = moves.filter(m=>!!m.capture===!!moves[0].capture);
+  const move = best[Math.floor(Math.random()*best.length)];
+  chAnimateAndApply(move);
+}
+
+/* ===================== НАРДЫ ===================== */
+let bgPoints, bgBar, bgOff, bgTurn, bgDice, bgUsed, bgSelected, bgGameOver;
+const BG_PLAYER = 'w', BG_AI = 'b';
+function restartBackgammon(){
+  bgPoints = Array(24).fill(0);
+  bgPoints[23]=2; bgPoints[12]=5; bgPoints[7]=3; bgPoints[5]=5; // white (positive)
+  bgPoints[0]=-2; bgPoints[11]=-5; bgPoints[16]=-3; bgPoints[18]=-5; // black (negative)
+  bgBar = {w:0, b:0};
+  bgOff = {w:0, b:0};
+  bgTurn = BG_PLAYER;
+  bgDice = [];
+  bgUsed = [];
+  bgSelected = null;
+  bgGameOver = false;
+  document.getElementById('bg-roll-btn').disabled = false;
+  bumpQuestProgress('newgame');
+  renderBackgammon();
+}
+function bgOwnerAt(idx){ if(bgPoints[idx]>0) return 'w'; if(bgPoints[idx]<0) return 'b'; return null; }
+function bgCountAt(idx){ return Math.abs(bgPoints[idx]); }
+function bgHomeRange(color){ return color==='w' ? [0,5] : [18,23]; }
+function bgAllInHome(color){
+  const [lo,hi] = bgHomeRange(color);
+  if(bgBar[color]>0) return false;
+  for(let i=0;i<24;i++){
+    if(bgOwnerAt(i)===color && (i<lo||i>hi)) return false;
+  }
+  return true;
+}
+function bgDest(idx, color, die){ return color==='w' ? idx-die : idx+die; }
+function bgEntryIdx(color, die){ return color==='w' ? 24-die : die-1; }
+function bgCanLand(idx, color){
+  if(idx<0||idx>23) return false;
+  const owner = bgOwnerAt(idx);
+  return !owner || owner===color || bgCountAt(idx)<=1;
+}
+function bgLegalMovesForDie(color, die){
+  const moves = [];
+  if(bgBar[color]>0){
+    const entry = bgEntryIdx(color, die);
+    if(bgCanLand(entry,color)) moves.push({from:'bar', to:entry, die});
+    return moves;
+  }
+  for(let i=0;i<24;i++){
+    if(bgOwnerAt(i)!==color) continue;
+    const d = bgDest(i,color,die);
+    if(d>=0 && d<=23 && bgCanLand(d,color)){ moves.push({from:i, to:d, die}); continue; }
+    if((d<0 || d>23) && bgAllInHome(color)){
+      const point = color==='w' ? i+1 : 24-i;
+      if(die===point){ moves.push({from:i, to:'off', die}); }
+      else if(die>point){
+        const [lo,hi] = bgHomeRange(color);
+        let hasHigher = false;
+        for(let k=lo;k<=hi;k++){
+          if(bgOwnerAt(k)!==color) continue;
+          const kp = color==='w' ? k+1 : 24-k;
+          if(kp>point) hasHigher = true;
+        }
+        if(!hasHigher) moves.push({from:i, to:'off', die});
+      }
+    }
+  }
+  return moves;
+}
+function bgAllLegalMoves(color){
+  let out = [];
+  bgUsed.forEach((used,i)=>{
+    if(used) return;
+    out = out.concat(bgLegalMovesForDie(color, bgDice[i]).map(m=>({...m, dieIdx:i})));
+  });
+  return out;
+}
+function bgRollDice(){
+  if(bgGameOver) return;
+  if(bgDice.length && bgUsed.some(u=>!u)) return;
+  const d1 = 1+Math.floor(Math.random()*6), d2 = 1+Math.floor(Math.random()*6);
+  bgDice = (d1===d2) ? [d1,d1,d1,d1] : [d1,d2];
+  bgUsed = bgDice.map(()=>false);
+  bgSelected = null;
+  document.getElementById('bg-roll-btn').disabled = true;
+  sfx('click');
+  renderBackgammon();
+  if(bgTurn===BG_AI) setTimeout(bgAiTurn, 500);
+  else if(bgAllLegalMoves(BG_PLAYER).length===0){ toast('Нет доступных ходов — пропуск'); setTimeout(bgEndTurn, 900); }
+}
+function bgEndTurn(){
+  bgTurn = bgTurn===BG_PLAYER ? BG_AI : BG_PLAYER;
+  bgDice = []; bgUsed = []; bgSelected = null;
+  document.getElementById('bg-roll-btn').disabled = (bgTurn!==BG_PLAYER);
+  renderBackgammon();
+  if(bgTurn===BG_AI) setTimeout(bgRollDice, 500);
+}
+function bgCheckWin(){
+  if(bgOff.w>=15){ bgOver(true); return true; }
+  if(bgOff.b>=15){ bgOver(false); return true; }
+  return false;
+}
+function bgOver(playerWon){
+  bgGameOver = true;
+  sfx(playerWon?'win':'boom');
+  if(playerWon){
+    const newCount = (getScores()[currentUser]?.backgammon||0)+1;
+    const isNew = saveScore('backgammon', newCount);
+    bumpProfile('backgammon', 60, 'win', isNew);
+    checkAchievements('backgammon', newCount);
+    toast('🏆 ПОБЕДА В НАРДАХ!', 3000);
+  } else {
+    registerLoss();
+    toast('💀 Поражение в нардах.', 2600);
+  }
+  document.getElementById('bg-status').textContent = playerWon ? 'ПОБЕДА!' : 'ПОРАЖЕНИЕ';
+  document.getElementById('bg-roll-btn').disabled = true;
+}
+function bgApplyMove(move){
+  const color = bgTurn;
+  if(move.from==='bar') bgBar[color]--;
+  else {
+    bgPoints[move.from] += (color==='w' ? -1 : 1);
+  }
+  if(move.to==='off'){ bgOff[color]++; sfx('win'); }
+  else {
+    const owner = bgOwnerAt(move.to);
+    if(owner && owner!==color && bgCountAt(move.to)===1){
+      bgPoints[move.to] = 0;
+      bgBar[owner==='w'?'w':'b']++;
+      sfx('capture');
+    } else sfx('move');
+    bgPoints[move.to] += (color==='w' ? 1 : -1);
+  }
+  bgUsed[move.dieIdx] = true;
+  bgSelected = null;
+  if(bgCheckWin()) return;
+  if(bgAllLegalMoves(color).length===0 || bgUsed.every(u=>u)){
+    renderBackgammon();
+    setTimeout(bgEndTurn, 500);
+  } else {
+    renderBackgammon();
+  }
+}
+function bgAiTurn(){
+  if(bgTurn!==BG_AI) return;
+  const moves = bgAllLegalMoves(BG_AI);
+  if(!moves.length){ setTimeout(bgEndTurn, 500); return; }
+  moves.sort((a,b)=>{
+    const aHit = a.to!=='off' && bgOwnerAt(a.to)==='w' && bgCountAt(a.to)===1;
+    const bHit = b.to!=='off' && bgOwnerAt(b.to)==='w' && bgCountAt(b.to)===1;
+    return (bHit?1:0)-(aHit?1:0) || (b.to==='off'?1:0)-(a.to==='off'?1:0);
+  });
+  bgApplyMove(moves[0]);
+  if(bgTurn===BG_AI) setTimeout(bgAiTurn, 550);
+}
+function bgPointClick(idx){
+  if(bgTurn!==BG_PLAYER || bgGameOver) return;
+  if(!bgDice.length || bgUsed.every(u=>u)) return;
+  const legal = bgAllLegalMoves(BG_PLAYER);
+  if(bgBar.w>0){
+    const m = legal.find(m=>m.from==='bar' && m.to===idx);
+    if(m) bgApplyMove(m);
+    return;
+  }
+  if(bgSelected===null){
+    if(bgOwnerAt(idx)==='w' && legal.some(m=>m.from===idx)){ bgSelected = idx; renderBackgammon(); }
+    return;
+  }
+  const m = legal.find(m=>m.from===bgSelected && m.to===idx);
+  if(m) bgApplyMove(m);
+  else { bgSelected = (bgOwnerAt(idx)==='w' && legal.some(m=>m.from===idx)) ? idx : null; renderBackgammon(); }
+}
+function bgOffClick(){
+  if(bgTurn!==BG_PLAYER || bgSelected===null) return;
+  const legal = bgAllLegalMoves(BG_PLAYER);
+  const m = legal.find(m=>m.from===bgSelected && m.to==='off');
+  if(m) bgApplyMove(m);
+}
+function bgBarClick(){
+  if(bgTurn!==BG_PLAYER || bgBar.w<=0) return;
+  bgSelected = 'bar';
+  renderBackgammon();
+}
+function renderBackgammon(){
+  document.getElementById('bg-off-white').textContent = bgOff.w;
+  document.getElementById('bg-off-black').textContent = bgOff.b;
+  document.getElementById('bg-status').textContent = bgGameOver ? document.getElementById('bg-status').textContent : (bgTurn===BG_PLAYER ? 'ТВОЙ ХОД' : 'ХОД БОТА');
+
+  const diceEl = document.getElementById('bg-dice');
+  diceEl.innerHTML = bgDice.map((d,i)=>`<div class="bg-die${bgUsed[i]?' used':''}">${d}</div>`).join('');
+
+  const legal = (bgTurn===BG_PLAYER && bgDice.length) ? bgAllLegalMoves(BG_PLAYER) : [];
+  const board = document.getElementById('backgammon-board');
+  board.innerHTML = '';
+
+  function makePoint(idx, topRow){
+    const div = document.createElement('div');
+    div.className = 'bg-point ' + (topRow?'top':'bottom') + (idx%2===0?' alt':'');
+    const owner = bgOwnerAt(idx);
+    const count = bgCountAt(idx);
+    for(let i=0;i<Math.min(count,5);i++){
+      const chip = document.createElement('div');
+      chip.className = 'bg-chip ' + owner;
+      div.appendChild(chip);
+    }
+    if(count>5){ const more = document.createElement('div'); more.className='bg-count'; more.textContent='+'+(count-5); div.appendChild(more); }
+    if(bgSelected===idx) div.classList.add('selected');
+    if(legal.some(m=>m.from===bgSelected && m.to===idx) || (bgBar.w>0 && legal.some(m=>m.from==='bar'&&m.to===idx))) div.classList.add('hint');
+    div.onclick = ()=> bgPointClick(idx);
+    return div;
+  }
+  const topRow = document.createElement('div'); topRow.className='bg-row';
+  for(let p=12;p<=23;p++) topRow.appendChild(makePoint(p, true));
+  board.appendChild(topRow);
+
+  const midRow = document.createElement('div'); midRow.className = 'bg-mid-row';
+  const barZone = document.createElement('div');
+  barZone.className = 'bg-bar-zone' + (legal.some(m=>m.from==='bar')?' hint':'');
+  barZone.innerHTML = `БАР<br>⚪${bgBar.w} ⚫${bgBar.b}`;
+  barZone.onclick = bgBarClick;
+  const offZone = document.createElement('div');
+  offZone.className = 'bg-off-zone' + (legal.some(m=>m.to==='off')?' hint':'');
+  offZone.innerHTML = `OFF<br>⚪${bgOff.w} ⚫${bgOff.b}`;
+  offZone.onclick = bgOffClick;
+  midRow.appendChild(barZone); midRow.appendChild(offZone);
+  board.appendChild(midRow);
+
+  const bottomRow = document.createElement('div'); bottomRow.className='bg-row';
+  for(let p=11;p>=0;p--) bottomRow.appendChild(makePoint(p, false));
+  board.appendChild(bottomRow);
 }
 
 /* ===================== 2048 ===================== */
@@ -2818,8 +4688,9 @@ function g2048Move(dir){
     g2048Over = true;
     sfx('boom');
     toast('ИГРА ОКОНЧЕНА! Очки: ' + g2048Score);
-    if(saveScore('g2048', g2048Score)) toast('НОВЫЙ РЕКОРД!', 2500);
-    bumpProfile('g2048', g2048Score);
+    const isNew = saveScore('g2048', g2048Score);
+    if(isNew) toast('НОВЫЙ РЕКОРД!', 2500);
+    bumpProfile('g2048', g2048Score, null, isNew);
   }
   if(maxTile>=2048 && !g2048Over){
     toast('🎉 ТЫ СОБРАЛ 2048!', 3000);
@@ -2956,8 +4827,9 @@ function tLockPiece(){
     clearInterval(tetrisInterval);
     sfx('boom');
     toast('ИГРА ОКОНЧЕНА! Очки: ' + tScore);
-    if(saveScore('tetris', tScore)) toast('НОВЫЙ РЕКОРД!', 2500);
-    bumpProfile('tetris', tScore);
+    const isNewT = saveScore('tetris', tScore);
+    if(isNewT) toast('НОВЫЙ РЕКОРД!', 2500);
+    bumpProfile('tetris', tScore, null, isNewT);
     checkAchievements('tetris', tScore);
   }
 }
@@ -3032,13 +4904,14 @@ function hangmanGuess(l){
     sfx('win');
     toast('🎉 УГАДАЛ! Слово: ' + hangmanWord);
     saveScore('hangman', (getScores()[currentUser]?.hangman||0)+1);
-    bumpProfile('hangman', 25);
+    bumpProfile('hangman', 25, 'win');
     checkAchievements('hangman', 1);
   } else if(hangmanErrors>=6){
     sfx('boom');
     toast('💀 ПРОИГРЫШ! Слово было: ' + hangmanWord);
     renderHangmanLetters();
     document.querySelectorAll('#hangman-letters button').forEach(b=>b.disabled=true);
+    registerLoss();
   }
 }
 function drawHangman(){
@@ -3116,8 +4989,9 @@ function platEndGame(){
   cancelAnimationFrame(platRAF);
   sfx('boom');
   toast('ИГРА ОКОНЧЕНА! Монет: ' + platCoins);
-  if(saveScore('plat', platCoins)) toast('НОВЫЙ РЕКОРД!', 2500);
-  bumpProfile('plat', platCoins);
+  const isNewPlat = saveScore('plat', platCoins);
+  if(isNewPlat) toast('НОВЫЙ РЕКОРД!', 2500);
+  bumpProfile('plat', platCoins, null, isNewPlat);
   checkAchievements('plat', platCoins);
 }
 function platLoop(){
@@ -3191,14 +5065,26 @@ function drawPlat(){
 
 /* ===================== СТАРТ ===================== */
 window.onload = function(){
-  const session = localStorage.getItem('pixelArena_session');
-  if(session){
-    currentUser = session;
-    document.getElementById('current-user').textContent = session;
-    refreshBestBadges();
-    applyUserAvatarUI();
-    showScreen('menu');
+  const isTelegram = initTelegram();
+
+  if(isTelegram){
+    // In Telegram, identity is automatic — no login/registration screen needed.
+    telegramAutoLogin();
+  } else {
+    // Fallback for testing outside Telegram: classic session/login flow.
+    const session = localStorage.getItem('pixelArena_session');
+    if(session){
+      const users = getUsers();
+      currentUser = session;
+      const label = (users[session] && users[session].displayName) || session;
+      document.getElementById('current-user').textContent = label;
+      refreshBestBadges();
+      applyUserAvatarUI();
+      initPxSystemForUser();
+      showScreen('menu');
+    }
   }
+
   if(localStorage.getItem('pixelArena_music')==='1'){
     musicOn = true;
     const btn = document.getElementById('music-toggle-btn');
