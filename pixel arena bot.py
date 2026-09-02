@@ -24,7 +24,7 @@ from aiogram.types import (
 
 # ====================== НАСТРОЙКИ — ВПИШИ СВОИ ЗНАЧЕНИЯ ======================
 BOT_TOKEN = "8845983390:AAHv7dRs4lishos6mNM3N86QwTXRtXM4j2w"
-WEBAPP_URL = "https://pixel-arena-nu.vercel.app/"
+WEBAPP_URL = "https://pixel-arena-beige.vercel.app/"
 # ==============================================================================
 
 logging.basicConfig(level=logging.INFO)
